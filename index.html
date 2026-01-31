@@ -1,15 +1,529 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rhyrhg99</title>
+    <title>TigranSoundLab - French Horn School & Online Music School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Musical notes background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='20' fill='%23d0d0d0' opacity='0.3'%3E♪%3C/text%3E%3Ctext x='60' y='70' font-size='25' fill='%23d0d0d0' opacity='0.3'%3E♫%3C/text%3E%3Ctext x='30' y='90' font-size='18' fill='%23d0d0d0' opacity='0.3'%3E♬%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #ff6b35;
+            background: white;
+            color: #333;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(50, 50, 50, 0.05) 100%);
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 35px rgba(255, 107, 53, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Instructor Image */
+        .instructor-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #ff6b35;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle-secondary {
+            font-size: 1.3em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 100%);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff6b35;
+        }
+
+        h2 {
+            color: #2c2c2c;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #ff6b35;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(255, 107, 53, 0.3);
+        }
+
+        .service-card h3 {
+            color: #2c2c2c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        /* Contact Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #ccc;
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Tigran Ter-Minasyan</h1>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d132.59541625769901!2d27.794525351072554!3d57.877232654204235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d57.8772576131295!2d27.794529374386784!5e0!3m2!1ses-419!2sec!4v1768783331190!5m2!1ses-419!2sec" width="999" height="999" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+        <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
+    </div>
 
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="TigranSoundLab Logo">
+            </div>
+        </div>
+        <h1>TIGRANSOUNDLAB</h1>
+        <p class="subtitle" data-en="FRENCH HORN SCHOOL" data-es="ESCUELA DE CORNO FRANCÉS">FRENCH HORN SCHOOL</p>
+        <p class="subtitle-secondary" data-en="ONLINE MUSIC SCHOOL" data-es="ESCUELA DE MÚSICA EN LÍNEA">ONLINE MUSIC SCHOOL</p>
+    </header>
 
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about" data-en="About" data-es="Acerca de">About</a></li>
+            <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+            <li><a href="#instructor" data-en="Instructor" data-es="Instructor">Instructor</a></li>
+            <li><a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a></li>
+            <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+    </nav>
 
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2 data-en="About TigranSoundLab" data-es="Acerca de TigranSoundLab">About TigranSoundLab</h2>
+            <p data-en="Welcome to TigranSoundLab, a premier online music school specializing in French Horn instruction. Led by renowned musician Tigran Ter-Minasyan, we offer world-class music education accessible from anywhere in the world." data-es="Bienvenido a TigranSoundLab, una escuela de música en línea de primer nivel especializada en la enseñanza del corno francés. Dirigida por el reconocido músico Tigran Ter-Minasyan, ofrecemos educación musical de clase mundial accesible desde cualquier parte del mundo.">
+                Welcome to TigranSoundLab, a premier online music school specializing in French Horn instruction. Led by renowned musician Tigran Ter-Minasyan, we offer world-class music education accessible from anywhere in the world.
+            </p>
+            <p data-en="Our mission is to inspire and develop the next generation of musicians through personalized instruction, innovative teaching methods, and a passion for musical excellence." data-es="Nuestra misión es inspirar y desarrollar la próxima generación de músicos a través de instrucción personalizada, métodos de enseñanza innovadores y una pasión por la excelencia musical.">
+                Our mission is to inspire and develop the next generation of musicians through personalized instruction, innovative teaching methods, and a passion for musical excellence.
+            </p>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video">
+            <h2 data-en="Experience Our Teaching" data-es="Experimenta Nuestra Enseñanza">Experience Our Teaching</h2>
+            <div class="video-container">
+                <video controls>
+                    <source src="Grabación de pantalla 2026-01-29 221012.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 data-en="Private Lessons" data-es="Clases Privadas">Private Lessons</h3>
+                    <p data-en="One-on-one instruction tailored to your skill level and goals." data-es="Instrucción personalizada adaptada a tu nivel y objetivos.">
+                        One-on-one instruction tailored to your skill level and goals.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Online Classes" data-es="Clases En Línea">Online Classes</h3>
+                    <p data-en="Learn from anywhere with our interactive online platform." data-es="Aprende desde cualquier lugar con nuestra plataforma interactiva en línea.">
+                        Learn from anywhere with our interactive online platform.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Masterclasses" data-es="Clases Magistrales">Masterclasses</h3>
+                    <p data-en="Advanced workshops and performance techniques." data-es="Talleres avanzados y técnicas de interpretación.">
+                        Advanced workshops and performance techniques.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Music Theory" data-es="Teoría Musical">Music Theory</h3>
+                    <p data-en="Comprehensive music theory education for all levels." data-es="Educación integral de teoría musical para todos los niveles.">
+                        Comprehensive music theory education for all levels.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructor Section -->
+        <section id="instructor">
+            <h2 data-en="Meet Your Instructor" data-es="Conoce a Tu Instructor">Meet Your Instructor</h2>
+            <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran Ter-Minasyan performing" class="instructor-image">
+            <h3>Tigran Ter-Minasyan</h3>
+            <p data-en="Tigran Ter-Minasyan is an internationally acclaimed French Horn player with years of experience performing with prestigious orchestras around the world. His passion for teaching and dedication to musical excellence have helped countless students achieve their musical dreams." data-es="Tigran Ter-Minasyan es un cornista de renombre internacional con años de experiencia tocando con prestigiosas orquestas alrededor del mundo. Su pasión por la enseñanza y dedicación a la excelencia musical han ayudado a innumerables estudiantes a alcanzar sus sueños musicales.">
+                Tigran Ter-Minasyan is an internationally acclaimed French Horn player with years of experience performing with prestigious orchestras around the world. His passion for teaching and dedication to musical excellence have helped countless students achieve their musical dreams.
+            </p>
+            <a href="#contact" class="cta-button" data-en="Start Your Musical Journey" data-es="Comienza Tu Viaje Musical">Start Your Musical Journey</a>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2 data-en="Gallery" data-es="Galería">Gallery</h2>
+            <p data-en="Explore moments from performances, masterclasses, and student achievements." data-es="Explora momentos de presentaciones, clases magistrales y logros de estudiantes.">
+                Explore moments from performances, masterclasses, and student achievements.
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="86970af0-d727-41cb-a5cf-40a262900e3e.jpg" alt="Concert Hall Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="f18644d4-874a-4769-a9d8-45aad396b0d1.jpg" alt="French Horn Section">
+                </div>
+                <div class="gallery-item">
+                    <img src="2e0cd3a7-1b38-48d3-865a-0652441b06d9.jpg" alt="Orchestra Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="28066426-5fa5-4000-8c1a-5f67f9780619.jpg" alt="Solo Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="40f7314b-b0f4-4f6e-b08a-0ded7cbd423b.jpg" alt="Teaching Students">
+                </div>
+                <div class="gallery-item">
+                    <img src="b2ccd998-d1fc-4062-941c-f0f9ebffea09.jpg" alt="Masterclass with Students">
+                </div>
+                <div class="gallery-item">
+                    <img src="b6e4a50c-0558-43c2-9c11-31b22bc8fe42.jpg" alt="Performance on Stage">
+                </div>
+                <div class="gallery-item">
+                    <img src="fa16be3e-d40d-4d05-a620-2d6b7940d57e.jpg" alt="Ensemble Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="d14786a6-49e3-4b21-afbc-433e9a9948e5.jpg" alt="Group Photo with Students">
+                </div>
+                <div class="gallery-item">
+                    <img src="fee3b89a-2b32-48c6-ac7c-4774d4676faa.jpg" alt="Educational Outreach">
+                </div>
+                <div class="gallery-item">
+                    <img src="0cfc9d09-68d9-4568-a475-d44c9ffb1341.jpg" alt="School Visit">
+                </div>
+                <div class="gallery-item">
+                    <img src="dc0a70ec-cae6-4a3d-8616-f96bb6f35ec4.jpg" alt="Evening Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="e55fc09c-a166-4de8-a4db-9a8389d19a29.jpg" alt="Chamber Music">
+                </div>
+                <div class="gallery-item">
+                    <img src="85763a1b-5c1f-4ff7-8d17-ac6bb0870c30.jpg" alt="Professional Event">
+                </div>
+                <div class="gallery-item">
+                    <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" alt="Portrait with French Horn">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
+            <p data-en="Ready to begin your musical journey? Contact us today to schedule your first lesson!" data-es="¿Listo para comenzar tu viaje musical? ¡Contáctanos hoy para programar tu primera clase!">
+                Ready to begin your musical journey? Contact us today to schedule your first lesson!
+            </p>
+            <p><strong data-en="Email:" data-es="Correo:">Email:</strong> info@tigransoundlab.com</p>
+            <p><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> +1 (555) 123-4567</p>
+            <a href="mailto:info@tigransoundlab.com" class="cta-button" data-en="Get In Touch" data-es="Ponte en Contacto">Get In Touch</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 TigranSoundLab. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+        <p data-en="Tigran Ter-Minasyan - French Horn School & Online Music School" data-es="Tigran Ter-Minasyan - Escuela de Corno Francés y Escuela de Música en Línea">Tigran Ter-Minasyan - French Horn School & Online Music School</p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = element.getAttribute('data-' + lang);
+                } else {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
