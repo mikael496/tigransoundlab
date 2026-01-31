@@ -73,21 +73,61 @@
         header {
             text-align: center;
             padding: 80px 20px 40px;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(50, 50, 50, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo-container {
-            margin-bottom: 30px;
+        /* Video Background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
         }
 
         .logo {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px;
+            width: 60px;
+            height: 60px;
             background: white;
             border-radius: 50%;
-            padding: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .logo img {
@@ -95,6 +135,17 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
         }
 
         /* Gallery Grid */
@@ -138,11 +189,11 @@
 
         h1 {
             font-size: 3.5em;
-            color: #2c2c2c;
+            color: white;
             margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
         }
 
         .subtitle {
@@ -150,22 +201,27 @@
             color: #ff6b35;
             margin-bottom: 10px;
             font-weight: 600;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
         }
 
         .subtitle-secondary {
             font-size: 1.3em;
-            color: #666;
+            color: white;
             font-weight: 500;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
         }
 
         /* Navigation */
         nav {
             background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 100%);
-            padding: 20px;
+            padding: 15px 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         nav ul {
@@ -174,6 +230,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
+            flex: 1;
         }
 
         nav a {
@@ -340,14 +397,18 @@
 
     <!-- Header -->
     <header>
-        <div class="logo-container">
-            <div class="logo">
-                <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="TigranSoundLab Logo">
-            </div>
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="WhatsApp Video 2026-01-30 at 10.14.10 PM.mp4" type="video/mp4">
+                <source src="WhatsApp Video 2026-01-30 at 10.15.03 PM.mp4" type="video/mp4">
+            </video>
         </div>
-        <h1>TIGRANSOUNDLAB</h1>
-        <p class="subtitle" data-en="FRENCH HORN SCHOOL" data-es="ESCUELA DE CORNO FRANCÉS">FRENCH HORN SCHOOL</p>
-        <p class="subtitle-secondary" data-en="ONLINE MUSIC SCHOOL" data-es="ESCUELA DE MÚSICA EN LÍNEA">ONLINE MUSIC SCHOOL</p>
+        <div class="header-content">
+            <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran Ter-Minasyan" class="hero-image">
+            <h1>TIGRANSOUNDLAB</h1>
+            <p class="subtitle" data-en="FRENCH HORN SCHOOL" data-es="ESCUELA DE CORNO FRANCÉS">FRENCH HORN SCHOOL</p>
+            <p class="subtitle-secondary" data-en="ONLINE MUSIC SCHOOL" data-es="ESCUELA DE MÚSICA EN LÍNEA">ONLINE MUSIC SCHOOL</p>
+        </div>
     </header>
 
     <!-- Navigation -->
@@ -422,7 +483,7 @@
             <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran Ter-Minasyan performing" class="instructor-image">
             <h3>Tigran Ter-Minasyan</h3>
             <p data-en="Tigran Ter-Minasyan is an internationally acclaimed French Horn player with years of experience performing with prestigious orchestras around the world. His passion for teaching and dedication to musical excellence have helped countless students achieve their musical dreams." data-es="Tigran Ter-Minasyan es un cornista de renombre internacional con años de experiencia tocando con prestigiosas orquestas alrededor del mundo. Su pasión por la enseñanza y dedicación a la excelencia musical han ayudado a innumerables estudiantes a alcanzar sus sueños musicales.">
-                Tigran Ter-Minasyan is an internationally acclaimed French Horn player with years of experience performing with prestigious orchestras around the world. His passion for teaching and dedication to musical excellence have helped countless students achieve their musical dreams.
+                Tigran Ter-Minasyan is an internationally acclaimed French Horn player who served as principal horn of the OSNE and now performs concerts attended by diplomats, especially Denis Danilidis, the Deputy Ambassador of the EU in Ecuador. His passion for teaching and dedication to musical excellence have helped countless students achieve their musical dreams.
             </p>
             <a href="#contact" class="cta-button" data-en="Start Your Musical Journey" data-es="Comienza Tu Viaje Musical">Start Your Musical Journey</a>
         </section>
@@ -459,6 +520,9 @@
                     <img src="fa16be3e-d40d-4d05-a620-2d6b7940d57e.jpg" alt="Ensemble Performance">
                 </div>
                 <div class="gallery-item">
+                    <img src="a9bee456-f42d-4220-85be-14005a51e714.jpg" alt="Additional Ensemble Performance">
+                </div>
+                <div class="gallery-item">
                     <img src="d14786a6-49e3-4b21-afbc-433e9a9948e5.jpg" alt="Group Photo with Students">
                 </div>
                 <div class="gallery-item">
@@ -488,9 +552,9 @@
             <p data-en="Ready to begin your musical journey? Contact us today to schedule your first lesson!" data-es="¿Listo para comenzar tu viaje musical? ¡Contáctanos hoy para programar tu primera clase!">
                 Ready to begin your musical journey? Contact us today to schedule your first lesson!
             </p>
-            <p><strong data-en="Email:" data-es="Correo:">Email:</strong> info@tigransoundlab.com</p>
-            <p><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> +1 (555) 123-4567</p>
-            <a href="mailto:info@tigransoundlab.com" class="cta-button" data-en="Get In Touch" data-es="Ponte en Contacto">Get In Touch</a>
+            <p><strong data-en="Email:" data-es="Correo:">Email:</strong> tigransoundlab@gmail.com</p>
+            <p><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> +593 999 6 888 50</p>
+            <a href="mailto:tigransoundlab@gmail.com" class="cta-button" data-en="Get In Touch" data-es="Ponte en Contacto">Get In Touch</a>
         </section>
     </div>
 
