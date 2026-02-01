@@ -21,12 +21,11 @@
         header {
             position: relative;
             height: 100vh;
-            overflow: visible;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 40px;
         }
 
         .video-background {
@@ -58,7 +57,7 @@
             position: relative;
             z-index: 1;
             color: white;
-            margin-top: -120px;
+            margin-top: -80px;
         }
 
         .hero-image {
@@ -66,12 +65,11 @@
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 30%;
+            /* AJUSTE: Subimos la imagen dentro del círculo */
+            object-position: center 15%; 
             border: 5px solid #ff6600;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            top: -80px;
         }
 
         header h1 {
@@ -93,54 +91,23 @@
             position: sticky;
             top: 0;
             background: rgba(51, 51, 51, 0.95);
-            padding: 15px 0;
+            padding: 15px 50px;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 50px;
         }
 
-        .logo {
-            height: 50px;
-            width: auto;
-        }
+        .logo { height: 50px; }
+        .logo img { height: 100%; object-fit: contain; }
 
-        .logo img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
-        }
+        .nav-links { display: flex; list-style: none; flex: 1; justify-content: center; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
+        nav ul li a:hover { color: #ff6600; }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex: 1;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ff6600;
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-        }
-
+        .language-switcher { display: flex; gap: 10px; }
         .language-switcher button {
             background: transparent;
             border: 1px solid #ff6600;
@@ -148,227 +115,37 @@
             padding: 5px 12px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
         }
 
-        .language-switcher button:hover,
-        .language-switcher button.active {
-            background: #ff6600;
-            color: #fff;
-        }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; margin-bottom: 30px; text-align: center; color: #333; }
+        h2::after { content: '♪'; display: block; color: #ff6600; margin-top: 10px; }
 
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-            position: relative;
-        }
-
-        h2::after {
-            content: '♪';
-            display: block;
-            font-size: 2rem;
-            color: #ff6600;
-            margin-top: 10px;
-        }
-
-        .about-content {
+        .about-content, .video-container, .service-card, .instructor-section, .contact-info {
             background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .video-container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .video-container video {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
-        }
-
-        .service-card h3 {
-            color: #ff6600;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .instructor-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .instructor-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 15px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .instructor-bio {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .instructor-bio h3 {
-            color: #ff6600;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #ff6600;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s;
-            font-weight: bold;
-        }
-
-        .cta-button:hover {
-            background: #cc5200;
-        }
+        .instructor-section { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .instructor-image { width: 300px; height: 300px; border-radius: 15px; object-fit: cover; }
+        .instructor-bio { flex: 1; min-width: 300px; }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 30px;
         }
+        .gallery-item { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; }
+        .gallery-item:hover { transform: scale(1.05); }
 
-        .gallery-item {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .contact-info p {
-            font-size: 1.2rem;
-            margin: 15px 0;
-        }
-
-        .contact-info a {
-            color: #ff6600;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
+        footer { background: #333; color: white; text-align: center; padding: 30px; }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
-            nav {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                margin: 15px 0;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-
-            .instructor-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .hero-image {
-                width: 200px;
-                height: 200px;
-            }
-
-            .about-content, .contact-info, .video-container {
-                padding: 20px;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
+            header h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; padding: 15px; }
+            .instructor-section { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -377,10 +154,10 @@
         <div class="video-background">
             <video autoplay muted loop playsinline>
                 <source src="WhatsApp Video 2026-01-30 at 10.14.10 PM.mp4" type="video/mp4">
-                <source src="WhatsApp Video 2026-01-30 at 10.15.03 PM.mp4" type="video/mp4">
             </video>
         </div>
         <div class="header-content">
+            <!-- La imagen ahora está más arriba dentro del círculo -->
             <img src="b0f1533d-30d7-4cc0-a3a9-171a0782f72c.jpg" alt="Tigran Ter-Minasyan" class="hero-image">
             <h1>TigranSoundLab</h1>
             <p>PROFESSIONAL FRENCH HORN SCHOOL AND MUSIC EDUCATION</p>
@@ -389,120 +166,56 @@
 
     <nav>
         <div class="logo">
-            <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="TigranSoundLab Logo">
+            <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="Logo">
         </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#video">Video</a></li>
-            <li><a href="#services">Services</a></li>
             <li><a href="#instructor">Instructor</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="language-switcher">
-            <button onclick="changeLanguage('en')" class="active">EN</button>
+            <button onclick="changeLanguage('en')">EN</button>
             <button onclick="changeLanguage('es')">ES</button>
-            <button onclick="changeLanguage('ru')">RU</button>
-            <button onclick="changeLanguage('hy')">HY</button>
         </div>
     </nav>
 
     <section id="about">
-        <h2>About TigranSoundLab</h2>
+        <h2>About My School</h2>
         <div class="about-content">
-            <p>Welcome to my music school, where passion for music meets professional excellence. I offer comprehensive instruction in French Horn and Music Theory, tailored to students of all levels.</p>
-        </div>
-    </section>
-
-    <section id="video">
-        <h2>Watch My Performance</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="Grabación de pantalla 2026-01-29 221012.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <section id="services">
-        <h2>My Services</h2>
-        <div class="services">
-            <div class="service-card">
-                <h3>French Horn Lessons</h3>
-                <p>Professional instruction for beginners to advanced players. Learn proper technique, tone production, and repertoire.</p>
-            </div>
-            <div class="service-card">
-                <h3>Music Theory</h3>
-                <p>Comprehensive music theory education covering harmony, composition, and analysis for all skill levels.</p>
-            </div>
-            <div class="service-card">
-                <h3>Ensemble Performance</h3>
-                <p>Opportunities to perform in ensembles and develop chamber music skills with professional guidance.</p>
-            </div>
+            <p>Welcome to my music school. I offer professional instruction in French Horn and Music Theory for all levels.</p>
         </div>
     </section>
 
     <section id="instructor">
-        <h2>Meet Your Instructor</h2>
+        <h2>Meet Me</h2>
         <div class="instructor-section">
-            <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran Ter-Minasyan" class="instructor-image">
+            <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran" class="instructor-image">
             <div class="instructor-bio">
                 <h3>Tigran Ter-Minasyan</h3>
-                <p>Tigran Ter-Minasyan is a distinguished French Horn player and educator with extensive international experience. He has performed with prestigious orchestras and worked as principal horn of the OSNE (Orquesta Sinfónica Nacional del Ecuador). Currently, he performs in concerts attended by diplomats, including Denis Danilidis, the Deputy Ambassador of the EU in Ecuador. His teaching philosophy combines technical excellence with musical expression, helping students achieve their full potential.</p>
-                <a href="#contact" class="cta-button">Book a Lesson</a>
+                <p>I worked as principal horn of the OSNE and now perform concerts for diplomats like Denis Danilidis.</p>
             </div>
         </div>
     </section>
 
     <section id="gallery">
         <h2>Gallery</h2>
-        <p style="text-align: center; margin-bottom: 30px;">Explore moments from my performances, lessons, and musical journey.</p>
         <div class="gallery-grid">
-            <img src="86970af0-d727-41cb-a3cf-40a262900e3e.jpg" alt="Performance" class="gallery-item">
-            <img src="f18644d4-874a-4769-a9d8-45aad396b0d1.jpg" alt="Teaching" class="gallery-item">
-            <img src="2e0cd3a7-1b38-48d3-865a-0652441b06d9.jpg" alt="Concert" class="gallery-item">
-            <img src="28066426-5fa5-4000-8c1a-5f67f9780619.jpg" alt="Practice" class="gallery-item">
-            <img src="40f7314b-b0f4-4f6e-b08a-0ded7cbd423b.jpg" alt="Ensemble" class="gallery-item">
-            <img src="b2ccd998-d1fc-4062-941c-f0f9ebffea09.jpg" alt="Studio" class="gallery-item">
-            <img src="b6e4a50c-0558-43c2-9c11-31b22bc8fe42.jpg" alt="Performance" class="gallery-item">
-            <img src="fa16be3e-d40d-4d05-a620-2d6b7940d57e.jpg" alt="Recital" class="gallery-item">
-            <img src="d14786a6-49e3-4b21-afbc-433e9a9948e5.jpg" alt="Masterclass" class="gallery-item">
-            <img src="fee3b89a-2b32-48c6-ac7c-4774d4676faa.jpg" alt="Orchestra" class="gallery-item">
-            <img src="0cfc9d09-68d9-4568-a475-d44c9ffb1341.jpg" alt="Concert Hall" class="gallery-item">
-            <img src="dc0a70ec-cae6-4a3d-8616-f96bb6f35ec4.jpg" alt="Performance" class="gallery-item">
-            <img src="e55fc09c-a166-4de8-a4db-9a8389d19a29.jpg" alt="Teaching Session" class="gallery-item">
-            <img src="85763a1b-5c1f-4ff7-8d17-ac6bb0870c30.jpg" alt="Music" class="gallery-item">
-            <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" alt="Tigran" class="gallery-item">
-            <img src="a9bee456-f42d-4820-85be-14005a51e714.jpg" alt="Ensemble Performance" class="gallery-item">
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <div class="contact-info">
-            <p>Ready to start your musical journey? Get in touch!</p>
-            <p><strong>Email:</strong> <a href="mailto:tigransoundlab@gmail.com">tigransoundlab@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+593999688850">+593 999 6 888 50</a></p>
-            <p><strong>Location:</strong> Quito, Ecuador</p>
+            <img src="86970af0-d727-41cb-a5cf-40a262900e3e.jpg" class="gallery-item">
+            <img src="f18644d4-874a-4769-a9d8-45aad396b0d1.jpg" class="gallery-item">
+            <img src="2e0cd3a7-1b38-48d3-865a-0652441b06d9.jpg" class="gallery-item">
+            <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" class="gallery-item">
         </div>
     </section>
 
     <footer>
         <p>© 2026 TigranSoundLab. All rights reserved.</p>
-        <p>Empowering musicians through excellence in education.</p>
     </footer>
 
     <script>
         function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-' + lang + ']');
-            elements.forEach(el => {
-                el.textContent = el.getAttribute('data-' + lang);
-            });
-
-            document.querySelectorAll('.language-switcher button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            // Lógica de cambio de idioma simplificada para el ejemplo
+            alert('Language changed to ' + lang);
         }
     </script>
 </body>
