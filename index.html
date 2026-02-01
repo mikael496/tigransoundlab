@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TigranSoundLab - Music School</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
@@ -18,6 +13,7 @@
             line-height: 1.6;
         }
 
+        /* Header con efecto Zoom Out en la imagen */
         header {
             position: relative;
             height: 100vh;
@@ -27,478 +23,259 @@
             justify-content: center;
             text-align: center;
         }
-
         .video-background {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 0;
         }
-
         .video-background video {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
         }
-
         .video-background::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
         }
 
         .header-content {
             position: relative;
             z-index: 1;
             color: white;
-            margin-top: -80px;
+            margin-top: -40px;
         }
 
+        /* Imagen con efecto Zoom Out y bordes suavizados (no circular) */
+        .hero-image-container {
+            overflow: hidden;
+            width: 350px;
+            height: 450px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            border: 4px solid #ff6600;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
         .hero-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: center 30%;
-            border: 5px solid #ff6600;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Animación de Zoom Out */
+            animation: zoomOutEffect 12s ease-in-out infinite;
+        }
+
+        @keyframes zoomOutEffect {
+            0% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
         header h1 {
             font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
             color: #ff6600;
         }
-
         header p {
             font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
+        /* Navegación con Logo a la izquierda */
         nav {
             position: sticky;
             top: 0;
             background: rgba(51, 51, 51, 0.95);
-            padding: 15px 0;
+            padding: 10px 50px;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 50px;
         }
-
         .logo {
-            height: 50px;
-            width: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ff6600;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-decoration: none;
         }
-
         .logo img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
+            height: 45px;
+            border-radius: 4px;
         }
 
         .nav-links {
             display: flex;
-            justify-content: center;
             list-style: none;
-            flex: 1;
+            gap: 25px;
         }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
+        .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: 0.3s;
         }
+        .nav-links a:hover { color: #ff6600; }
 
-        nav ul li a:hover {
-            color: #ff6600;
+        /* Selector de Idioma estilo Amazon */
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
         }
-
-        .language-switcher {
+        .lang-btn {
+            background: #444;
+            color: white;
+            border: 1px solid #666;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
             display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lang-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #333;
+            min-width: 140px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .lang-content button {
+            width: 100%;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
+        .lang-content button:hover { background: #ff6600; }
+        .lang-dropdown:hover .lang-content { display: block; }
 
-        .language-switcher button {
-            background: transparent;
-            border: 1px solid #ff6600;
-            color: #fff;
-            padding: 5px 12px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .language-switcher button:hover,
-        .language-switcher button.active {
-            background: #ff6600;
-            color: #fff;
-        }
-
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-            position: relative;
-        }
-
-        h2::after {
-            content: '♪';
-            display: block;
-            font-size: 2rem;
-            color: #ff6600;
-            margin-top: 10px;
-        }
-
-        .about-content {
-            background: rgba(255, 255, 255, 0.9);
+        /* Secciones en Primera Persona */
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .card {
+            background: white;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+        h2::after { content: '♪'; display: block; color: #ff6600; font-size: 1.5rem; }
 
-        .video-container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .video-container video {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .services {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-
         .service-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid #ff6600;
+            transition: 0.3s;
         }
+        .service-card:hover { transform: translateY(-10px); }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
-        }
-
-        .service-card h3 {
-            color: #ff6600;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .instructor-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .instructor-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 15px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .instructor-bio {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .instructor-bio h3 {
-            color: #ff6600;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #ff6600;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s;
-            font-weight: bold;
-        }
-
-        .cta-button:hover {
-            background: #cc5200;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .contact-info p {
-            font-size: 1.2rem;
-            margin: 15px 0;
-        }
-
-        .contact-info a {
-            color: #ff6600;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
+        footer { background: #222; color: #888; text-align: center; padding: 40px; }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
-            nav {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                margin: 15px 0;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-
-            .instructor-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .hero-image {
-                width: 200px;
-                height: 200px;
-            }
-
-            .about-content, .contact-info, .video-container {
-                padding: 20px;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
+            nav { flex-direction: column; gap: 15px; }
+            .hero-image-container { width: 280px; height: 360px; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="video-background">
             <video autoplay muted loop playsinline>
                 <source src="WhatsApp Video 2026-01-30 at 10.14.10 PM.mp4" type="video/mp4">
-                <source src="WhatsApp Video 2026-01-30 at 10.15.03 PM.mp4" type="video/mp4">
             </video>
         </div>
         <div class="header-content">
-            <img src="b0f1533d-30d7-4cc0-a3a9-171a0782f72c.jpg" alt="Tigran Ter-Minasyan" class="hero-image">
+            <div class="hero-image-container">
+                <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" alt="Tigran" class="hero-image">
+            </div>
             <h1>TigranSoundLab</h1>
-            <p data-en="Professional Music Education" data-es="Educación Musical Profesional" data-ru="Профессиональное музыкальное образование" data-hy="Մասնագիտական ​​երաժշտական կրթություն">Professional Music Education</p>
-            <p data-en="French Horn & Music Theory" data-es="Corno Francés y Teoría Musical" data-ru="Валторна и теория музыки" data-hy="Ֆրանսիական եղջյուր և երաժշտության տեսություն">French Horn & Music Theory</p>
+            <p data-en="My Professional Music Studio" data-es="Mi Estudio Musical Profesional" data-ru="Моя профессиональная музыкальная студия" data-hy="Իմ պրոֆեսիոնալ երաժշտական ստուդիան">My Professional Music Studio</p>
         </div>
     </header>
 
     <nav>
-        <div class="logo">
-            <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="TigranSoundLab Logo">
-        </div>
+        <a href="#" class="logo">
+            <img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="Logo">
+            TigranSoundLab
+        </a>
         <ul class="nav-links">
-            <li><a href="#about" data-en="About" data-es="Acerca de" data-ru="О нас" data-hy="Մեր մասին">About</a></li>
-            <li><a href="#video" data-en="Video" data-es="Video" data-ru="Видео" data-hy="Տեսանյութ">Video</a></li>
+            <li><a href="#about" data-en="About Me" data-es="Sobre Mí" data-ru="Обо мне" data-hy="Իմ մասին">About Me</a></li>
             <li><a href="#services" data-en="Services" data-es="Servicios" data-ru="Услуги" data-hy="Ծառայություններ">Services</a></li>
-            <li><a href="#instructor" data-en="Instructor" data-es="Instructor" data-ru="Преподаватель" data-hy="Դասախոս">Instructor</a></li>
-            <li><a href="#gallery" data-en="Gallery" data-es="Galería" data-ru="Галерея" data-hy="Պատկերասրահ">Gallery</a></li>
-            <li><a href="#contact" data-en="Contact" data-es="Contacto" data-ru="Контакты" data-hy="Կապ">Contact</a></li>
+            <li><a href="#contact" data-en="Contact" data-es="Contacto" data-ru="Контакт" data-hy="Կապ">Contact</a></li>
         </ul>
-        <div class="language-switcher">
-            <button onclick="changeLanguage('en')" class="active">EN</button>
-            <button onclick="changeLanguage('es')">ES</button>
-            <button onclick="changeLanguage('ru')">RU</button>
-            <button onclick="changeLanguage('hy')">HY</button>
+        <div class="lang-dropdown">
+            <button class="lang-btn">🌐 <span id="current-lang">EN</span></button>
+            <div class="lang-content">
+                <button onclick="setLang('en')">🇬🇧 English</button>
+                <button onclick="setLang('es')">🇪🇸 Español</button>
+                <button onclick="setLang('ru')">🇷🇺 Русский</button>
+                <button onclick="setLang('hy')">🇦🇲 Հայերեն</button>
+            </div>
         </div>
     </nav>
 
     <section id="about">
-        <h2 data-en="About TigranSoundLab" data-es="Acerca de TigranSoundLab" data-ru="О TigranSoundLab" data-hy="TigranSoundLab-ի մասին">About TigranSoundLab</h2>
-        <div class="about-content">
-            <p data-en="Welcome to TigranSoundLab, where passion for music meets professional excellence. Our music school offers comprehensive instruction in French Horn and Music Theory, tailored to students of all levels." data-es="Bienvenido a TigranSoundLab, donde la pasión por la música se encuentra con la excelencia profesional. Nuestra escuela de música ofrece instrucción integral en Corno Francés y Teoría Musical, adaptada a estudiantes de todos los niveles." data-ru="Добро пожаловать в TigranSoundLab, где страсть к музыке встречается с профессиональным мастерством. Наша музыкальная школа предлагает комплексное обучение игре на валторне и теории музыки для студентов всех уровней." data-hy="Բարի գալուստ TigranSoundLab, որտեղ երաժշտության նկատմամբ կիրքը հանդիպում է մասնագիտական ​​գերազանցությանը: Մեր երաժշտական դպրոցը առաջարկում է ֆրանսիական եղջյուրի և երաժշտության տեսության համապարփակ ուսուցում՝ հարմարեցված բոլոր մակարդակների ուսանողների համար:">Welcome to TigranSoundLab, where passion for music meets professional excellence. Our music school offers comprehensive instruction in French Horn and Music Theory, tailored to students of all levels.</p>
-        </div>
-    </section>
-
-    <section id="video">
-        <h2 data-en="Watch Our Performance" data-es="Mira Nuestra Presentación" data-ru="Смотрите наше выступление" data-hy="Դիտեք մեր ելույթը">Watch Our Performance</h2>
-        <div class="video-container">
-            <video controls>
-                <source src="Grabación de pantalla 2026-01-29 221012.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="card">
+            <h2 data-en="Welcome to My World" data-es="Bienvenido a Mi Mundo" data-ru="Добро пожаловать в мой мир" data-hy="Բարի գալուստ իմ աշխարհ">Welcome to My World</h2>
+            <p data-en="I am Tigran Ter-Minasyan. My passion is to guide you through the art of music. With years of international experience as a principal horn player, I offer you a unique perspective on performance and theory." 
+               data-es="Soy Tigran Ter-Minasyan. Mi pasión es guiarte a través del arte de la música. Con años de experiencia internacional como corno principal, te ofrezco una perspectiva única sobre la interpretación y la teoría."
+               data-ru="Я Тигран Тер-Минасян. Моя страсть — вести вас через искусство музыки. Обладая многолетним международным опытом в качестве ведущего валторниста, я предлагаю вам уникальный взгляд на исполнение и теорию."
+               data-hy="Ես Տիգրան Տեր-Մինասյանն եմ: Իմ կիրքն է առաջնորդել ձեզ երաժշտության արվեստի միջոցով: Որպես գլխավոր հոռնահար միջազգային բազմամյա փորձով, ես ձեզ առաջարկում եմ կատարողականի և տեսության եզակի հեռանկար:">
+               I am Tigran Ter-Minasyan. My passion is to guide you through the art of music. With years of international experience as a principal horn player, I offer you a unique perspective on performance and theory.
+            </p>
         </div>
     </section>
 
     <section id="services">
-        <h2 data-en="Our Services" data-es="Nuestros Servicios" data-ru="Наши услуги" data-hy="Մեր ծառայությունները">Our Services</h2>
-        <div class="services">
+        <h2 data-en="How I Can Help You" data-es="Cómo Puedo Ayudarte" data-ru="Как я могу вам помочь" data-hy="Ինչպես կարող եմ օգնել ձեզ">How I Can Help You</h2>
+        <div class="services-grid">
             <div class="service-card">
-                <h3 data-en="French Horn Lessons" data-es="Clases de Corno Francés" data-ru="Уроки валторны" data-hy="Ֆրանսիական եղջյուրի դասեր">French Horn Lessons</h3>
-                <p data-en="Professional instruction for beginners to advanced players. Learn proper technique, tone production, and repertoire." data-es="Instrucción profesional para principiantes y jugadores avanzados. Aprende técnica adecuada, producción de tono y repertorio." data-ru="Профессиональное обучение от начинающих до продвинутых исполнителей. Изучите правильную технику, звукоизвлечение и репертуар." data-hy="Մասնագիտական ​​ուսուցում սկսնակներից մինչև առաջադեմ նվագարկիչներ: Սովորեք ճիշտ տեխնիկա, հնչյունի արտադրություն և ռեպերտուար:">Professional instruction for beginners to advanced players. Learn proper technique, tone production, and repertoire.</p>
-            </div>
-            <div class="service-card">
-                <h3 data-en="Music Theory" data-es="Teoría Musical" data-ru="Теория музыки" data-hy="Երաժշտության տեսություն">Music Theory</h3>
-                <p data-en="Comprehensive music theory education covering harmony, composition, and analysis for all skill levels." data-es="Educación integral en teoría musical que cubre armonía, composición y análisis para todos los niveles de habilidad." data-ru="Комплексное музыкально-теоретическое образование, охватывающее гармонию, композицию и анализ для всех уровней подготовки." data-hy="Երաժշտության տեսության համապարփակ կրթություն, որը ներառում է ներդաշնակություն, կոմպոզիցիա և վերլուծություն բոլոր հմտությունների մակարդակների համար:">Comprehensive music theory education covering harmony, composition, and analysis for all skill levels.</p>
+                <h3 data-en="Horn Lessons" data-es="Clases de Corno" data-ru="Уроки валторны" data-hy="Հոռնի դասեր">Horn Lessons</h3>
+                <p data-en="I will teach you the secrets of the French Horn, from basic technique to advanced repertoire." data-es="Te enseñaré los secretos del Corno Francés, desde la técnica básica hasta el repertorio avanzado.">I will teach you the secrets of the French Horn, from basic technique to advanced repertoire.</p>
             </div>
             <div class="service-card">
-                <h3 data-en="Ensemble Performance" data-es="Interpretación de Conjunto" data-ru="Ансамблевое исполнение" data-hy="Անսամբլային կատարում">Ensemble Performance</h3>
-                <p data-en="Opportunities to perform in ensembles and develop chamber music skills with professional guidance." data-es="Oportunidades para actuar en conjuntos y desarrollar habilidades de música de cámara con orientación profesional." data-ru="Возможности выступать в ансамблях и развивать навыки камерной музыки под профессиональным руководством." data-hy="Հնարավորություններ հանդես գալ անսամբլներում և զարգացնել կամերային երաժշտության հմտություններ մասնագիտական ​​ուղղորդմամբ:">Opportunities to perform in ensembles and develop chamber music skills with professional guidance.</p>
+                <h3 data-en="Theory & Harmony" data-es="Teoría y Armonía" data-ru="Теория и гармония" data-hy="Տեսություն և հարմոնիա">Theory & Harmony</h3>
+                <p data-en="I help you understand the language of music so you can compose and analyze with confidence." data-es="Te ayudo a entender el lenguaje de la música para que puedas componer y analizar con confianza.">I help you understand the language of music so you can compose and analyze with confidence.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="instructor">
-        <h2 data-en="Meet Your Instructor" data-es="Conoce a tu Instructor" data-ru="Познакомьтесь с вашим преподавателем" data-hy="Ծանոթացեք ձեր դասախոսին">Meet Your Instructor</h2>
-        <div class="instructor-section">
-            <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran Ter-Minasyan" class="instructor-image">
-            <div class="instructor-bio">
-                <h3>Tigran Ter-Minasyan</h3>
-                <p data-en="Tigran Ter-Minasyan is a distinguished French Horn player and educator with extensive international experience. He has performed with prestigious orchestras and worked as principal horn of the OSNE (Orquesta Sinfónica Nacional del Ecuador). Currently, he performs in concerts attended by diplomats, including Denis Danilidis, the Deputy Ambassador of the EU in Ecuador. His teaching philosophy combines technical excellence with musical expression, helping students achieve their full potential." data-es="Tigran Ter-Minasyan es un distinguido intérprete y educador de Corno Francés con amplia experiencia internacional. Ha actuado con prestigiosas orquestas y trabajó como corno principal de la OSNE (Orquesta Sinfónica Nacional del Ecuador). Actualmente, realiza conciertos a los que asisten diplomáticos, incluido Denis Danilidis, el Embajador Adjunto de la UE en Ecuador. Su filosofía de enseñanza combina la excelencia técnica con la expresión musical, ayudando a los estudiantes a alcanzar su máximo potencial." data-ru="Тигран Тер-Минасян — выдающийся валторнист и педагог с обширным международным опытом. Он выступал с престижными оркестрами и работал главным валторнистом OSNE (Национальный симфонический оркестр Эквадора). В настоящее время он выступает на концертах, которые посещают дипломаты, в том числе Денис Данилидис, заместитель посла ЕС в Эквадоре. Его философия преподавания сочетает техническое совершенство с музыкальным выражением, помогая студентам раскрыть свой потенциал." data-hy="Տիգրան Տեր-Մինասյանը հայտնի ֆրանսիական եղջյուրահար և մանկավարժ է՝ լայն միջազգային փորձով: Նա հանդես է եկել հեղինակավոր նվագախմբերի հետ և աշխատել է որպես OSNE-ի (Էկվադորի ազգային սիմֆոնիկ նվագախումբ) գլխավոր եղջյուր: Ներկայումս նա հանդես է գալիս համերգներում, որոնց մասնակցում են դիվանագետներ, այդ թվում՝ Դենիս Դանիլիդիսը՝ ԵՄ փոխդեսպանը Էկվադորում: Նրա դասավանդման փիլիսոփայությունը համատեղում է տեխնիկական գերազանցությունը երաժշտական արտահայտչությանը՝ օգնելով ուսանողներին իրականացնել իրենց ամբողջական ներուժը:">Tigran Ter-Minasyan is a distinguished French Horn player and educator with extensive international experience. He has performed with prestigious orchestras and worked as principal horn of the OSNE (Orquesta Sinfónica Nacional del Ecuador). Currently, he performs in concerts attended by diplomats, including Denis Danilidis, the Deputy Ambassador of the EU in Ecuador. His teaching philosophy combines technical excellence with musical expression, helping students achieve their full potential.</p>
-                <a href="#contact" class="cta-button" data-en="Book a Lesson" data-es="Reservar una Clase" data-ru="Записаться на урок" data-hy="Ամրագրել դաս">Book a Lesson</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <h2 data-en="Gallery" data-es="Galería" data-ru="Галерея" data-hy="Պատկերասրահ">Gallery</h2>
-        <p style="text-align: center; margin-bottom: 30px;" data-en="Explore moments from our performances, lessons, and musical journey." data-es="Explora momentos de nuestras presentaciones, lecciones y viaje musical." data-ru="Исследуйте моменты наших выступлений, уроков и музыкального путешествия." data-hy="Ուսումնասիրեք մեր ելույթների, դասերի և երաժշտական ​​ճանապարհորդության պահերը:">Explore moments from our performances, lessons, and musical journey.</p>
-        <div class="gallery-grid">
-            <img src="86970af0-d727-41cb-a5cf-40a262900e3e.jpg" alt="Performance" class="gallery-item">
-            <img src="f18644d4-874a-4769-a9d8-45aad396b0d1.jpg" alt="Teaching" class="gallery-item">
-            <img src="2e0cd3a7-1b38-48d3-865a-0652441b06d9.jpg" alt="Concert" class="gallery-item">
-            <img src="28066426-5fa5-4000-8c1a-5f67f9780619.jpg" alt="Practice" class="gallery-item">
-            <img src="40f7314b-b0f4-4f6e-b08a-0ded7cbd423b.jpg" alt="Ensemble" class="gallery-item">
-            <img src="b2ccd998-d1fc-4062-941c-f0f9ebffea09.jpg" alt="Studio" class="gallery-item">
-            <img src="b6e4a50c-0558-43c2-9c11-31b22bc8fe42.jpg" alt="Performance" class="gallery-item">
-            <img src="fa16be3e-d40d-4d05-a620-2d6b7940d57e.jpg" alt="Recital" class="gallery-item">
-            <img src="d14786a6-49e3-4b21-afbc-433e9a9948e5.jpg" alt="Masterclass" class="gallery-item">
-            <img src="fee3b89a-2b32-48c6-ac7c-4774d4676faa.jpg" alt="Orchestra" class="gallery-item">
-            <img src="0cfc9d09-68d9-4568-a475-d44c9ffb1341.jpg" alt="Concert Hall" class="gallery-item">
-            <img src="dc0a70ec-cae6-4a3d-8616-f96bb6f35ec4.jpg" alt="Performance" class="gallery-item">
-            <img src="e55fc09c-a166-4de8-a4db-9a8389d19a29.jpg" alt="Teaching Session" class="gallery-item">
-            <img src="85763a1b-5c1f-4ff7-8d17-ac6bb0870c30.jpg" alt="Music" class="gallery-item">
-            <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" alt="Tigran" class="gallery-item">
-            <img src="a9bee456-f42d-4820-85be-14005a51e714.jpg" alt="Ensemble Performance" class="gallery-item">
         </div>
     </section>
 
     <section id="contact">
-        <h2 data-en="Contact Us" data-es="Contáctanos" data-ru="Свяжитесь с нами" data-hy="Կապվեք մեզ հետ">Contact Us</h2>
-        <div class="contact-info">
-            <p data-en="Ready to start your musical journey? Get in touch!" data-es="¿Listo para comenzar tu viaje musical? ¡Ponte en contacto!" data-ru="Готовы начать свое музыкальное путешествие? Свяжитесь с нами!" data-hy="Պատրա՞ստ եք սկսել ձեր երաժշտական ​​ճանապարհորդությունը: Կապվեք մեզ հետ:">Ready to start your musical journey? Get in touch!</p>
-            <p><strong data-en="Email:" data-es="Correo:" data-ru="Эл. почта:" data-hy="Էլ. փոստ:">Email:</strong> <a href="mailto:tigransoundlab@gmail.com">tigransoundlab@gmail.com</a></p>
-            <p><strong data-en="Phone:" data-es="Teléfono:" data-ru="Телефон:" data-hy="Հեռախոս:">Phone:</strong> <a href="tel:+593999688850">+593 999 6 888 50</a></p>
-            <p><strong data-en="Location:" data-es="Ubicación:" data-ru="Местоположение:" data-hy="Գտնվելու վայրը:">Location:</strong> <span data-en="Quito, Ecuador" data-es="Quito, Ecuador" data-ru="Кито, Эквадор" data-hy="Կիտո, Էկվադոր">Quito, Ecuador</span></p>
+        <div class="card" style="text-align: center;">
+            <h2 data-en="Let's Work Together" data-es="Trabajemos Juntos" data-ru="Давайте работать вместе" data-hy="Եկեք աշխատենք միասին">Let's Work Together</h2>
+            <p>Email: <a href="mailto:tigransoundlab@gmail.com">tigransoundlab@gmail.com</a></p>
+            <p>WhatsApp: <a href="tel:+593999688850">+593 999 6 888 50</a></p>
         </div>
     </section>
 
     <footer>
-        <p data-en="© 2026 TigranSoundLab. All rights reserved." data-es="© 2026 TigranSoundLab. Todos los derechos reservados." data-ru="© 2026 TigranSoundLab. Все права защищены." data-hy="© 2026 TigranSoundLab: Բոլոր իրավունքները պաշտպանված են:">© 2026 TigranSoundLab. All rights reserved.</p>
-        <p data-en="Empowering musicians through excellence in education." data-es="Empoderando a los músicos a través de la excelencia en la educación." data-ru="Расширение возможностей музыкантов через совершенство в образовании." data-hy="Երաժիշտներին հզորացնել կրթության գերազանցության միջոցով:">Empowering musicians through excellence in education.</p>
+        <p>© 2026 TigranSoundLab | Quito, Ecuador</p>
     </footer>
 
     <script>
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-' + lang + ']');
-            elements.forEach(el => {
+        function setLang(lang) {
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
                 el.textContent = el.getAttribute('data-' + lang);
             });
-
-            document.querySelectorAll('.language-switcher button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
         }
     </script>
 </body>
