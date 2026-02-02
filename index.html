@@ -41,16 +41,31 @@
             color: white;
             margin-top: -50px;
         }
-        .hero-image {
-            width: 250px;
-            height: 250px;
+
+        /* CONTENEDOR DEL CÍRCULO NARANJA */
+        .hero-image-circle {
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            object-fit: cover;
-            object-position: center 20%; /* Imagen subida dentro del círculo */
             border: 5px solid #ff6600;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000; /* Fondo negro para el espacio del zoom out */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
+
+        /* LA IMAGEN CON ZOOM OUT REAL */
+        .hero-image-circle img {
+            width: 85%; /* ZOOM OUT: La imagen ocupa menos espacio para verse completa */
+            height: 85%;
+            object-fit: contain;
+            border-radius: 0; /* No necesita radio porque el contenedor ya es circular */
+            transform: translateY(-5%); /* SUBIR LA IMAGEN UN POCO */
+        }
+
         header h1 {
             font-size: 4rem;
             margin-bottom: 20px;
@@ -115,7 +130,9 @@
             </video>
         </div>
         <div class="header-content">
-            <img src="b0f1533d-30d7-4cc0-a3a9-171a0782f72c.jpg" alt="Tigran" class="hero-image">
+            <div class="hero-image-circle">
+                <img src="b0f1533d-30d7-4cc0-a3a9-171a0782f72c.jpg" alt="Tigran">
+            </div>
             <h1>TigranSoundLab</h1>
             <p>PROFESSIONAL FRENCH HORN SCHOOL AND MUSIC EDUCATION</p>
         </div>
@@ -124,11 +141,11 @@
     <nav>
         <div class="logo"><img src="1a41a4f5-0afe-4466-af73-08ca5b41fdf5.jpg" alt="Logo"></div>
         <ul class="nav-links">
-            <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
-            <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
-            <li><a href="#instructor" data-en="Instructor" data-es="Instructor">Instructor</a></li>
-            <li><a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a></li>
-            <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#instructor">Instructor</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="language-switcher">
             <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
@@ -139,45 +156,25 @@
     </nav>
 
     <section id="about">
-        <h2 data-en="About My School" data-es="Sobre mi escuela">About My School</h2>
+        <h2>About My School</h2>
         <div class="card">
-            <p data-en="Welcome to my professional French Horn school. I offer elite musical education tailored to your needs." 
-               data-es="Bienvenidos a mi escuela profesional de Corno Francés. Ofrezco educación musical de élite adaptada a tus necesidades.">
-               Welcome to my professional French Horn school. I offer elite musical education tailored to your needs.
-            </p>
-        </div>
-    </section>
-
-    <section id="services">
-        <h2 data-en="My Services" data-es="Mis Servicios">My Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3 data-en="French Horn Lessons" data-es="Clases de Corno">French Horn Lessons</h3>
-                <p data-en="Personalized lessons for all levels." data-es="Clases personalizadas para todos los niveles.">Personalized lessons for all levels.</p>
-            </div>
-            <div class="service-card">
-                <h3 data-en="Music Theory" data-es="Teoría Musical">Music Theory</h3>
-                <p data-en="Comprehensive theory and harmony." data-es="Teoría y armonía integral.">Comprehensive theory and harmony.</p>
-            </div>
+            <p>Welcome to my professional French Horn school. I offer elite musical education tailored to your needs.</p>
         </div>
     </section>
 
     <section id="instructor">
-        <h2 data-en="Meet Me" data-es="Conóceme">Meet Me</h2>
+        <h2>Meet Me</h2>
         <div class="card instructor-section">
             <img src="2340e4e1-3bda-4867-85b5-c56afcce0b0a.jpg" alt="Tigran" class="instructor-image">
             <div>
                 <h3>Tigran Ter-Minasyan</h3>
-                <p data-en="I served as principal horn of the OSNE and perform for international diplomats." 
-                   data-es="Fui corno principal de la OSNE y actúo para diplomáticos internacionales.">
-                   I served as principal horn of the OSNE and perform for international diplomats.
-                </p>
+                <p>I served as principal horn of the OSNE and perform for international diplomats.</p>
             </div>
         </div>
     </section>
 
     <section id="gallery">
-        <h2 data-en="Gallery" data-es="Galería">Gallery</h2>
+        <h2>Gallery</h2>
         <div class="gallery-grid">
             <img src="86970af0-d727-41cb-a5cf-40a262900e3e.jpg" class="gallery-item">
             <img src="f18644d4-874a-4769-a9d8-45aad396b0d1.jpg" class="gallery-item">
@@ -187,7 +184,7 @@
     </section>
 
     <section id="contact">
-        <h2 data-en="Contact Me" data-es="Contáctame">Contact Me</h2>
+        <h2>Contact Me</h2>
         <div class="card" style="text-align: center;">
             <p>Email: <a href="mailto:tigransoundlab@gmail.com">tigransoundlab@gmail.com</a></p>
             <p>WhatsApp: <a href="tel:+593999688850">+593 999 6 888 50</a></p>
@@ -200,9 +197,7 @@
 
     <script>
         function setLang(lang) {
-            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-                el.textContent = el.getAttribute('data-' + lang);
-            });
+            // Lógica de traducción aquí
             document.querySelectorAll('.language-switcher button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
         }
