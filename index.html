@@ -57,10 +57,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         .hero-image-container img {
-            width: 135%; /* Ensanchada para cubrir bordes */
+            width: 100%;
             height: 100%;
-            object-fit: fill; /* Deformación controlada para llenar el círculo */
+            object-fit: contain; /* Mantiene proporción original sin estirar */
             object-position: center top;
+            transform: scaleX(1); /* Sin contracción horizontal */
         }
 
         header h1 {
@@ -131,12 +132,12 @@
     <header>
         <div class="video-background">
             <video autoplay muted loop playsinline>
-                <source src="WhatsApp Video 2026-01-30 at 10.14.10 PM.mp4" type="video/mp4">
+                <source src="WhatsApp Video 2026-02-05 at 9.25.32 PM.mp4" type="video/mp4">
             </video>
         </div>
         <div class="header-content">
             <div class="hero-image-container">
-                <img src="ac646ff1-7aff-4d88-a746-ac7244bf8fd8.jpg" alt="Tigran">
+                <img src="https://cdn.abacus.ai/images/91d8f9aa-0f20-40f5-b3d3-b22c68eb2cb0.png" alt="Tigran">
             </div>
             <h1>TigranSoundLab</h1>
             <p>PROFESSIONAL FRENCH HORN SCHOOL AND MUSIC EDUCATION</p>
