@@ -123,7 +123,33 @@
 
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; padding: 15px; gap: 15px; }
+            header p { font-size: 1rem; }
+            nav { 
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 10px 15px;
+                gap: 10px;
+                justify-content: center;
+            }
+            .logo img { height: 40px; }
+            .nav-links { 
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                width: 100%;
+                order: 2;
+            }
+            .nav-links a { font-size: 0.8rem; }
+            .language-switcher {
+                order: 1;
+                display: flex;
+                gap: 5px;
+            }
+            .language-switcher button {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+                margin-left: 0;
+            }
             .instructor-section { flex-direction: column; text-align: center; }
         }
     </style>
@@ -220,6 +246,7 @@
             <img src="fa16be3e-d40d-4d05-a620-2d6b7940d57e.jpg" class="gallery-item">
             <img src="cfc11186-2727-4b2d-bedb-47798a669dfa.jpg" class="gallery-item">
             <img src="a9bee456-f42d-4820-85be-14005a51e714.jpg" class="gallery-item">
+            <img src="df8f26b0-232f-46ae-96fa-02f37184df96.jpg" class="gallery-item">
         </div>
     </section>
 
