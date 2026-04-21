@@ -36,6 +36,17 @@
         .gallery-item { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .gallery-item:hover { transform: scale(1.05); }
         footer { background: #333; color: white; text-align: center; padding: 40px; }
+        /* Checkout Modal */
+        #checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; align-items: center; justify-content: center; }
+        #checkout-modal.open { display: flex; }
+        .checkout-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+        .checkout-box { position: relative; z-index: 1; min-height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #3d1a00, #7a3200, #ff6a00); font-family: 'Segoe UI', sans-serif; padding: 40px 20px; }
+        .checkout-close { position: absolute; top: 20px; right: 25px; background: rgba(255,255,255,0.15); border: none; color: #fff; font-size: 1.8rem; cursor: pointer; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .checkout-close:hover { background: rgba(255,255,255,0.3); }
+        .checkout-box h1 { color: #fff3e0; font-size: 2rem; margin-bottom: 2rem; text-align: center; letter-spacing: 2px; }
+        .checkout-btn { display: inline-block; padding: 16px 40px; font-size: 1.1rem; font-weight: bold; color: #fff; background: linear-gradient(90deg, #ff6a00, #ff9a3c); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; box-shadow: 0 0 20px rgba(255,106,0,0.6); transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 1px; }
+        .checkout-btn:hover { transform: scale(1.07); box-shadow: 0 0 35px rgba(233,69,96,0.8); }
+        .checkout-btn:active { transform: scale(0.97); }
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             header p { font-size: 1rem; }
@@ -74,9 +85,9 @@
             <li><a href="#gallery" data-en="Gallery" data-es="Galería" data-ru="Галерея" data-hy="Պատկերասրահ">Gallery</a></li>
             <li><a href="#contact" data-en="Contacts" data-es="Contactos" data-ru="Контакты" data-hy="Կապեր">Contacts</a></li>
         </ul>
-        <a href="https://pay.payphonetodoesposible.com/AmountEdit?paymentId=vccz1KE1EyZIn6f17Dfg&direct=True&redirect=%2FDirect%2FResult" target="_blank" rel="noopener" style="display:inline-block; background:#ff6600; color:#fff; padding: 14px 22px; border-radius: 10px; text-decoration:none; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 6px 18px rgba(255,102,0,0.35);">
+        <button onclick="openCheckout()" style="display:inline-block; background:#ff6600; color:#fff; padding: 14px 22px; border-radius: 10px; border:none; cursor:pointer; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 6px 18px rgba(255,102,0,0.35);">
             <span data-en="Support Art" data-es="Apoya el Arte" data-ru="Поддержи искусство" data-hy="Աջակցիր արվեստին">Support Art</span>
-        </a>
+        </button>
         <div class="language-switcher">
             <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
             <button onclick="setLang('es')" id="btn-es">ES</button>
@@ -147,11 +158,11 @@
                 </div>
                 <div style="text-align:center; max-width: 520px;">
                     <p style="margin-bottom: 12px; color:#555;" data-en="Or click the button to open the payment page." data-es="O haz clic en el botón para abrir la página de pago." data-ru="Или нажмите кнопку, чтобы открыть страницу оплаты." data-hy="Կամ սեղմեք կոճակը՝ վճարման էջը բացելու համար:">Or click the button to open the payment page.</p>
-                    <a href="https://pay.payphonetodoesposible.com/AmountEdit?paymentId=vccz1KE1EyZIn6f17Dfg&direct=True&redirect=%2FDirect%2FResult" target="_blank" rel="noopener" style="display:inline-block; background:#ff6600; color:#fff; padding: 14px 22px; border-radius: 10px; text-decoration:none; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 6px 18px rgba(255,102,0,0.35);">
+                    <a href="https://ppls.me/RiEcHRmKtorPgVoPTiArg" target="_blank" rel="noopener" style="display:inline-block; background:#ff6600; color:#fff; padding: 14px 22px; border-radius: 10px; text-decoration:none; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 6px 18px rgba(255,102,0,0.35);">
                         <span data-en="Pay with Payphone" data-es="Pagar con Payphone" data-ru="Оплатить через Payphone" data-hy="Վճարել Payphone-ով">Pay with Payphone</span>
                     </a>
                     <p style="margin-top: 12px; font-size: 0.95rem; color:#777; word-break: break-word;">
-                        <a href="https://pay.payphonetodoesposible.com/AmountEdit?paymentId=vccz1KE1EyZIn6f17Dfg&direct=True&redirect=%2FDirect%2FResult" target="_blank" rel="noopener" style="color:#ff6600; font-weight: 700; text-decoration:none;">https://pay.payphonetodoesposible.com/AmountEdit?paymentId=vccz1KE1EyZIn6f17Dfg&direct=True&redirect=%2FDirect%2FResult</a>
+                        <a href="https://ppls.me/RiEcHRmKtorPgVoPTiArg" target="_blank" rel="noopener" style="color:#ff6600; font-weight: 700; text-decoration:none;">https://ppls.me/RiEcHRmKtorPgVoPTiArg</a>
                     </p>
                 </div>
             </div>
@@ -167,11 +178,39 @@
         </div>
     </section>
 
+    <!-- Checkout Modal -->
+    <div id="checkout-modal">
+        <div class="checkout-overlay" onclick="closeCheckout()"></div>
+        <div class="checkout-box">
+            <button class="checkout-close" onclick="closeCheckout()">✕</button>
+            <h1>Support Art</h1>
+            <a class="checkout-btn" href="https://ppls.me/RiEcHRmKtorPgVoPTiArg" target="_blank">
+                Go to Checkout
+            </a>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 TigranSoundLab | Professional French Horn School</p>
     </footer>
 
     <script>
+        function openCheckout() {
+            document.getElementById('checkout-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            history.pushState({checkout: true}, '', '/checkout');
+        }
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.remove('open');
+            document.body.style.overflow = '';
+            history.pushState({}, '', '/');
+        }
+        window.addEventListener('popstate', function(e) {
+            if (!e.state || !e.state.checkout) {
+                document.getElementById('checkout-modal').classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
         function setLang(lang) {
             document.querySelectorAll('[data-' + lang + ']').forEach(el => {
                 el.textContent = el.getAttribute('data-' + lang);
