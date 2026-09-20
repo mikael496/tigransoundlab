@@ -1,13 +1,7 @@
 'use strict';
-const header = document.querySelector('.site-header');
-const menuToggle = document.querySelector('.menu-toggle');
-function closeMenu() { header.classList.remove('menu-open'); menuToggle.setAttribute('aria-expanded', 'false'); }
-menuToggle.addEventListener('click', () => { const open = header.classList.toggle('menu-open'); menuToggle.setAttribute('aria-expanded', String(open)); });
-document.querySelectorAll('#navigation a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && header.classList.contains('menu-open')) { closeMenu(); menuToggle.focus(); } });
 const dialog = document.querySelector('#support-dialog');
 let supportTrigger;
-document.querySelectorAll('[data-support]').forEach(button => button.addEventListener('click', () => { supportTrigger=button; closeMenu(); dialog.showModal(); document.body.classList.add('modal-open'); }));
+document.querySelectorAll('[data-support]').forEach(button => button.addEventListener('click', () => { supportTrigger=button; dialog.showModal(); document.body.classList.add('modal-open'); }));
 dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); supportTrigger?.focus(); });
 dialog.addEventListener('click', event => { const r=dialog.getBoundingClientRect(); if(event.target===dialog && (event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom)) dialog.close(); });
 let languageRequest = 0;
