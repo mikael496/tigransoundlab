@@ -39,3 +39,26 @@ themeToggle.addEventListener('click', () => {
   applyTheme(dark);
   try { localStorage.setItem('tigran-theme', dark ? 'dark' : 'light'); } catch {}
 });
+
+const posterDialog = document.querySelector('#poster-dialog');
+let posterTrigger;
+document.querySelectorAll('[data-event-poster]').forEach(link => link.addEventListener('click', event => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || typeof posterDialog.showModal !== 'function') return;
+  event.preventDefault();
+  posterTrigger=link;
+  const source=link.querySelector('img');
+  const full=posterDialog.querySelector('img');
+  full.src=link.href; full.alt=source.alt;
+  document.querySelector('#poster-title').textContent=source.alt;
+  posterDialog.showModal();
+  document.body.classList.add('modal-open');
+}));
+posterDialog.addEventListener('close', () => {
+  document.body.classList.remove('modal-open');
+  posterTrigger?.focus();
+  posterDialog.querySelector('img').removeAttribute('src');
+});
+posterDialog.addEventListener('click', event => {
+  const r=posterDialog.getBoundingClientRect();
+  if(event.target===posterDialog && (event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom)) posterDialog.close();
+});
