@@ -52,7 +52,11 @@
     "portraitAlt": "Tigran Ter-Minasyan con su corno francés",
     "darkMode": "Modo oscuro",
     "onlineLocation": "Clases online · Desde Quito, Ecuador",
-    "portraitCaption": "Tigran y su corno francés"
+    "portraitCaption": "Tigran y su corno francés",
+    "events": "Eventos",
+    "eventTitle": "Portadas de conciertos",
+    "eventIntro": "Una colección de carteles de conciertos, recitales y encuentros musicales. Selecciona una portada para verla completa.",
+    "viewPoster": "Ver portada"
   },
   "en": {
     "school": "About",
@@ -107,7 +111,11 @@
     "portraitAlt": "Tigran Ter-Minasyan holding his French horn",
     "darkMode": "Dark mode",
     "onlineLocation": "Online lessons · Based in Quito, Ecuador",
-    "portraitCaption": "Tigran & his French horn"
+    "portraitCaption": "Tigran & his French horn",
+    "events": "Events",
+    "eventTitle": "Concert posters",
+    "eventIntro": "A collection of concert posters, recitals and musical encounters. Select a poster to see it in full.",
+    "viewPoster": "View poster"
   },
   "ru": {
     "school": "Обо мне",
@@ -162,7 +170,11 @@
     "portraitAlt": "Тигран Тер-Минасян с валторной",
     "darkMode": "Тёмная тема",
     "onlineLocation": "Уроки онлайн · Кито, Эквадор",
-    "portraitCaption": "Тигран с валторной"
+    "portraitCaption": "Тигран с валторной",
+    "events": "События",
+    "eventTitle": "Концертные афиши",
+    "eventIntro": "Коллекция афиш концертов, сольных выступлений и музыкальных встреч. Выберите афишу, чтобы открыть её полностью.",
+    "viewPoster": "Открыть афишу"
   },
   "hy": {
     "school": "Իմ մասին",
@@ -217,6 +229,10 @@
     "portraitAlt": "Տիգրան Տեր-Մինասյանը գալարափողով",
     "darkMode": "Մուգ ռեժիմ",
     "onlineLocation": "Առցանց դասեր · Կիտո, Էկվադոր",
-    "portraitCaption": "Տիգրանը գալարափողով"
+    "portraitCaption": "Տիգրանը գալարափողով",
+    "events": "Միջոցառումներ",
+    "eventTitle": "Համերգների պաստառներ",
+    "eventIntro": "Համերգների, մենահամերգների և երաժշտական հանդիպումների պաստառների հավաքածու։ Ընտրեք պաստառը՝ ամբողջությամբ դիտելու համար։",
+    "viewPoster": "Դիտել պաստառը"
   }
 }
