@@ -12,7 +12,7 @@ dialog.addEventListener('close', () => { document.body.classList.remove('modal-o
 dialog.addEventListener('click', event => { const r=dialog.getBoundingClientRect(); if(event.target===dialog && (event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom)) dialog.close(); });
 let languageRequest = 0;
 const translations = fetch('translations.json').then(response => { if(!response.ok) throw new Error('Translations unavailable'); return response.json(); });
-// Keep the Spanish HTML usable even if the translations cannot be loaded.
+// Keep the English HTML usable even if the translations cannot be loaded.
 translations.catch(() => {});
 async function setLang(lang) {
   if(!['es','en','ru','hy'].includes(lang)) return;
@@ -28,7 +28,20 @@ async function setLang(lang) {
     document.title='TigranSoundLab — '+dictionary.footer;
     document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.lang===lang)));
     try { localStorage.setItem('tigran-language',lang); } catch {}
-  } catch { /* Leave the fully rendered Spanish page intact. */ }
+  } catch { /* Leave the fully rendered English page intact. */ }
 }
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click',()=>setLang(button.dataset.lang)));
 try { const saved=localStorage.getItem('tigran-language'); if(saved) setLang(saved); } catch {}
+
+const themeToggle = document.querySelector('.theme-toggle');
+function applyTheme(dark) {
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  themeToggle.setAttribute('aria-pressed', String(dark));
+  document.querySelector('meta[name="theme-color"]').content = dark ? '#151b18' : '#f7f3eb';
+}
+applyTheme(document.documentElement.dataset.theme === 'dark');
+themeToggle.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme !== 'dark';
+  applyTheme(dark);
+  try { localStorage.setItem('tigran-theme', dark ? 'dark' : 'light'); } catch {}
+});
