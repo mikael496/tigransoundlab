@@ -56,3 +56,18 @@ dialog[open]{animation:gentle-entry .22s ease-out}
 .theme-toggle{order:3;margin-left:0}
 @media(max-width:1000px){.nav-wrap{flex-wrap:wrap;padding:12px 24px;gap:8px 16px}.theme-toggle{order:1;margin-left:auto}.nav-content{flex-basis:100%;justify-content:flex-start;gap:8px 20px}.nav-content nav{flex:1 1 100%}.nav-actions{margin-left:auto}}
 @media(max-width:600px){.site-header{position:relative}html{scroll-padding-top:24px}.nav-wrap{padding:10px 16px;gap:6px 12px}.site-header .brand-logo{width:210px}.nav-content{gap:6px 12px}.nav-content nav{gap:2px 14px}.nav-content nav a{font-size:12px}.nav-actions{margin-left:0}.nav-actions .button{font-size:12px}.languages button{padding-inline:8px}}
+
+.events-section{margin-top:64px;padding-top:56px;border-top:1px solid var(--line)}
+.events-section>h3{font:400 clamp(30px,3vw,42px)/1.2 var(--serif);letter-spacing:-.025em}
+.events-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 24px;margin-top:32px}
+.event-card{min-width:0}.event-card h4{font-size:14px;font-weight:500;line-height:1.5;margin:12px 0 0}
+.event-poster-link{display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--sage)}
+.event-poster-link img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+.event-open{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;font-size:12px;color:var(--ink);border-top:1px solid var(--line)}
+.event-poster-link:hover .event-open{color:var(--copper)}
+.poster-dialog{width:min(1000px,calc(100% - 24px));padding:52px 20px 20px;max-height:94dvh}
+.poster-dialog h3{font-size:18px;line-height:1.4;margin-bottom:16px;padding-right:12px}
+.poster-dialog img{width:auto;height:auto;max-width:100%;max-height:75dvh;margin:auto;object-fit:contain}
+@media(max-width:1000px){.events-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 16px}}
+@media(max-width:760px){.events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.events-section{margin-top:40px;padding-top:40px}}
+@media(max-width:480px){.events-grid{grid-template-columns:1fr}.event-poster-link img{aspect-ratio:auto}.poster-dialog{padding-inline:12px}}
