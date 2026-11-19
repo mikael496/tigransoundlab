@@ -10,7 +10,20 @@ function setMenu(open) {
   menuToggle.setAttribute('aria-expanded', String(open));
   navPanel.classList.toggle('open', open);
 }
-menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+/* Switch to the compact (hamburger) header when the full menu would not fit in the bar */
+const header = document.querySelector('.site-header');
+const bar = header.querySelector('.bar');
+function fitHeader() {
+  header.classList.remove('compact');
+  const needed = bar.querySelector('.brand').scrollWidth + 24 + navPanel.scrollWidth;
+  const fits = window.innerWidth > 1040 && needed <= bar.clientWidth;
+  header.classList.toggle('compact', !fits);
+  if (fits) setMenu(false);
+}
+window.addEventListener('resize', fitHeader);
+if (document.fonts) document.fonts.ready.then(fitHeader);
+fitHeader();
+menuToggle.addEventListener('click',() => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
 navPanel.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && navPanel.classList.contains('open')) { setMenu(false); menuToggle.focus(); } });
 
@@ -26,7 +39,7 @@ function updateWhatsAppLinks() {
 
 /* ---------- Translations (Spanish is the HTML default) ---------- */
 let languageRequest = 0;
-const translations = fetch('translations.json').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
+const translations = fetch('translations.json?v=3').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
 translations.catch(() => {});
 async function setLang(lang) {
   if (!LANGS.includes(lang)) return;
@@ -43,6 +56,7 @@ async function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     renderVideoLabels();
     updateWhatsAppLinks();
+    fitHeader();
     try { localStorage.setItem('tigran-language', lang); } catch {}
   } catch { /* keep the Spanish page as rendered */ }
 }
