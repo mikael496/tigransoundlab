@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tigran Ter-Minasyan — Solista de corno, organizador de eventos y gestor cultural</title>
-<meta name="description" content="Tigran Ter-Minasyan: solista de corno francés, organizador de eventos y gestor cultural en Quito, Ecuador. Conciertos, producción de eventos, cartelera y clases de música.">
+<title>Tigran Ter-Minasyan — Solista de corno, gestor cultural, profesor y organizador de eventos</title>
+<meta name="description" content="Tigran Ter-Minasyan: solista de corno francés, gestor cultural, profesor y organizador de eventos. Conciertos, producción de eventos, proyectos culturales y clases de música.">
 <meta name="theme-color" content="#2b1219">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tigran Ter-Minasyan — Solista de corno, organizador de eventos y gestor cultural">
-<meta property="og:description" content="Conciertos, producción de eventos, gestión cultural y clases de música en Quito.">
+<meta property="og:title" content="Tigran Ter-Minasyan — Solista de corno, gestor cultural, profesor y organizador de eventos">
+<meta property="og:description" content="Conciertos, eventos, gestión cultural y clases de música.">
 <meta property="og:image" content="assets/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Onest:wght@400;500;600&family=Noto+Serif+Armenian:wght@400&family=Noto+Sans+Armenian:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/hero-portrait.jpg">
-<link rel="stylesheet" href="styles.css?v=6">
-<script src="script.js?v=5" defer></script>
+<link rel="preload" as="image" href="assets/img/hero-portrait.jpg?v=2">
+<link rel="stylesheet" href="styles.css?v=8">
+<script src="script.js?v=7" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Tigran Ter-Minasyan","jobTitle":["Solista de corno","Organizador de eventos","Gestor cultural"],"address":{"@type":"PostalAddress","addressLocality":"Quito","addressCountry":"EC"},"email":"mailto:tigransoundlab@gmail.com","telephone":"+593999688850"}
+{"@context":"https://schema.org","@type":"Person","name":"Tigran Ter-Minasyan","jobTitle":["Solista de corno","Gestor cultural","Profesor","Organizador de eventos"],"address":{"@type":"PostalAddress","addressLocality":"Quito","addressCountry":"EC"},"email":"mailto:tigransoundlab@gmail.com","telephone":"+593999688850"}
 </script>
 </head>
 <body>
@@ -27,9 +27,8 @@
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="#top" aria-label="Tigran Ter-Minasyan">
-      <span class="brand-name">Tigran Ter-Minasyan</span>
-      <span class="brand-role">TigranSoundLab</span>
+    <a class="brand" href="#top" aria-label="TigranSoundLab — Tigran Ter-Minasyan">
+      <img class="brand-logo" src="assets/tigransoundlab-logo.svg" width="800" height="132" alt="TigranSoundLab">
     </a>
     <a class="bar-link" href="#gallery" data-i18n="navGallery">Galería</a>
     <div class="languages" role="group" aria-label="Idioma" data-i18n-label="langLabel">
@@ -47,23 +46,24 @@
   <section class="hero" id="top">
     <div class="hero-copy">
       <h1><span>Tigran</span> <span>Ter-Minasyan</span></h1>
-      <p class="hero-role" data-i18n="heroRole">Solista de corno, organizador de eventos y gestor cultural</p>
-      <p class="hero-lead" data-i18n="heroLead">Conciertos, producción de eventos y proyectos culturales desde Quito, Ecuador. La música cambia vidas.</p>
+      <p class="hero-role" data-i18n="heroRole">Solista de corno, gestor cultural, profesor y organizador de eventos</p>
+      <p class="hero-lead" data-i18n="heroLead">Conciertos, eventos, proyectos culturales y clases de música desde Quito, Ecuador. La música cambia vidas.</p>
       <div class="hero-actions">
         <a class="btn btn-brass" href="#contact" data-i18n="heroContact">Contactar</a>
-        <a class="btn btn-ghost" href="#cartelera" data-i18n="heroBill">Ver cartelera</a>
+        <a class="btn btn-ghost" href="#conciertos" data-i18n="heroConcerts">Ver conciertos</a>
       </div>
     </div>
     <figure class="hero-photo">
-      <img src="assets/img/hero-portrait.jpg" width="1100" height="1408" alt="Tigran Ter-Minasyan con su corno francés" data-i18n-alt="heroAlt" fetchpriority="high">
+      <img src="assets/img/hero-portrait.jpg?v=2" width="1100" height="1408" alt="Tigran Ter-Minasyan con su corno francés" data-i18n-alt="heroAlt" fetchpriority="high">
     </figure>
   </section>
 
+  <!-- PIANO KEYS: one per section -->
   <nav class="keys" aria-label="Secciones" data-i18n-label="navLabel">
-    <a class="key" href="#solista"><span data-i18n="key1">Solista</span></a>
-    <a class="key" href="#eventos"><span data-i18n="key2">Organizador de eventos</span></a>
-    <a class="key" href="#gestion"><span data-i18n="key3">Gestor cultural</span></a>
-    <a class="key" href="#profesor"><span data-i18n="key4">Profesor</span></a>
+    <a class="key" href="#solista"><span class="key-name" data-i18n="key1">Solista</span><span class="key-sub" data-i18n="key1s">Conciertos y programas</span></a>
+    <a class="key" href="#eventos"><span class="key-name" data-i18n="key2">Organizador de eventos</span><span class="key-sub" data-i18n="key2s">Formatos y producción</span></a>
+    <a class="key" href="#gestion"><span class="key-name" data-i18n="key3">Gestor cultural</span><span class="key-sub" data-i18n="key3s">Gestión cultural</span></a>
+    <a class="key" href="#profesor"><span class="key-name" data-i18n="key4">Profesor</span><span class="key-sub" data-i18n="key4s">Escuela y masterclass</span></a>
   </nav>
 
   <!-- 1. SOLISTA -->
@@ -76,9 +76,31 @@
       <div class="split">
         <figure class="split-photo"><img src="assets/img/hero.jpg" width="1456" height="1456" loading="lazy" alt="Tigran tocando el corno en un teatro" data-i18n-alt="soloAlt"></figure>
         <div class="split-text">
-          <p class="lead" data-i18n="solo1">Tigran Ter-Minasyan pertenece a la cuarta generación de una familia de músicos armenios. Como solista ofrece recitales, música de cámara y conciertos con orquesta.</p>
+          <p class="lead" data-i18n="solo1">Tigran Ter-Minasyan pertenece a la cuarta generación de una familia de músicos armenios. Como solista ofrece recitales con piano y conciertos con orquesta de cámara, de vientos y sinfónica.</p>
           <p data-i18n="solo2">Su repertorio va de Bach y Vivaldi a Mozart y Glière, pasa por la música armenia de Komitas, Khachaturian y Babajanyan, y llega al jazz y al soul, siempre con el corno francés como voz principal.</p>
         </div>
+      </div>
+
+      <h3 class="sub-title" data-i18n="soloFormatsTitle">Conciertos y programas</h3>
+      <div class="offers offers-3">
+        <article class="offer">
+          <h4 data-i18n="s1">Recitales con piano</h4>
+          <p data-i18n="s1d">Programas de corno y piano para salas, auditorios e iglesias: música armenia, España, Mozart y el gran repertorio romántico.</p>
+          <ul><li data-i18n="s1i1">Programa a medida y notas al programa</li><li data-i18n="s1i2">De 60 a 90 minutos</li></ul>
+          <a class="wa-link" data-wa="s1" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
+        </article>
+        <article class="offer">
+          <h4 data-i18n="s2">Orquesta de cámara o de vientos</h4>
+          <p data-i18n="s2d">Conciertos como solista con orquesta de cámara o banda sinfónica, con repertorio original y arreglos.</p>
+          <ul><li data-i18n="s2i1">Temporadas, festivales y galas</li><li data-i18n="s2i2">Repertorio a convenir</li></ul>
+          <a class="wa-link" data-wa="s2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
+        </article>
+        <article class="offer">
+          <h4 data-i18n="s3">Orquesta sinfónica</h4>
+          <p data-i18n="s3d">Conciertos para corno y orquesta del repertorio clásico y romántico, de Mozart a Strauss.</p>
+          <ul><li data-i18n="s3i1">Orquestas profesionales, universitarias y juveniles</li><li data-i18n="s3i2">Posibilidad de masterclass con la orquesta</li></ul>
+          <a class="wa-link" data-wa="s3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
+        </article>
       </div>
 
       <h3 class="sub-title" id="videos" data-i18n="videosTitle">Videos</h3>
@@ -89,27 +111,16 @@
         <div class="video" data-youtube="" data-thumb="assets/img/stage-duo.jpg"><p class="video-title" data-i18n="video3">Corno y jazz</p></div>
       </div>
 
-      <h3 class="sub-title" data-i18n="formatsTitle">Formatos de concierto</h3>
-      <div class="offers offers-3">
-        <article class="offer">
-          <h4 data-i18n="b1">Recital de corno y piano</h4>
-          <p data-i18n="b1d">Programas temáticos con pianista colaborador: música armenia, España, Mozart y el gran repertorio romántico.</p>
-          <ul><li data-i18n="b1i1">Programa a medida y notas al programa</li><li data-i18n="b1i2">De 60 a 90 minutos</li></ul>
-          <a class="wa-link" data-wa="b1" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
-        </article>
-        <article class="offer">
-          <h4 data-i18n="b2">Corno y jazz</h4>
-          <p data-i18n="b2d">Trío o cuarteto con piano y batería: baladas, jazz clásico y soul, con el corno como voz principal.</p>
-          <ul><li data-i18n="b2i1">Clubes, festivales y galas</li><li data-i18n="b2i2">Repertorio adaptable a la ocasión</li></ul>
-          <a class="wa-link" data-wa="b2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
-        </article>
-        <article class="offer">
-          <h4 data-i18n="b3">Solista con orquesta</h4>
-          <p data-i18n="b3d">Conciertos para corno y orquesta del repertorio clásico y romántico, para temporadas y festivales.</p>
-          <ul><li data-i18n="b3i1">Mozart y repertorio a convenir</li><li data-i18n="b3i2">Orquestas profesionales, universitarias y juveniles</li></ul>
-          <a class="wa-link" data-wa="b3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
-        </article>
-      </div>
+      <h3 class="sub-title" id="conciertos" data-i18n="soloBill">Conciertos</h3>
+      <p class="sub-intro" data-i18n="billIntro">Toca un cartel para verlo completo.</p>
+      <ol class="billboard">
+        <li class="bill"><a class="poster" href="assets/posters/academia-tort-barcelona.jpg" data-poster><img src="assets/posters/academia-tort-barcelona-sm.jpg" alt="Cartel: Concert — Tigran Ter-Minasyan e Ingrid Cusidó" loading="lazy" width="420" height="630"></a><p class="bill-date"><span>13</span> <span data-i18n="mNov">nov</span> 2026</p><h4>Concert — Tigran Ter-Minasyan e Ingrid Cusidó</h4><p class="bill-venue">Acadèmia Tort, Barcelona</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/coro-vell-terrassa.jpg" data-poster><img src="assets/posters/coro-vell-terrassa-sm.jpg" alt="Cartel: Concert — Tigran Ter-Minasyan e Ingrid Cusidó" loading="lazy" width="420" height="630"></a><p class="bill-date"><span>31</span> <span data-i18n="mOct">oct</span> 2026</p><h4>Concert — Tigran Ter-Minasyan e Ingrid Cusidó</h4><p class="bill-venue">Coro Vell, Terrassa</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/mozart-ute.jpg" data-poster><img src="assets/posters/mozart-ute-sm.jpg" alt="Cartel: Mozart — Sinfonía n.º 40 y Concierto para corno n.º 3" loading="lazy" width="420" height="560"></a><p class="bill-date"><span>28</span> <span data-i18n="mJul">jul</span> 2026</p><h4>Mozart — Sinfonía n.º 40 y Concierto para corno n.º 3</h4><p class="bill-venue">Capilla UTE, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/recital-musica-armenia.jpg" data-poster><img src="assets/posters/recital-musica-armenia-sm.jpg" alt="Cartel: Recital de Música Armenia — Armonías y vibraciones" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>22</span> <span data-i18n="mJan">ene</span> 2026</p><h4>Recital de Música Armenia — Armonías y vibraciones</h4><p class="bill-venue">Casa de la Música, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/melodias-inolvidables.jpg" data-poster><img src="assets/posters/melodias-inolvidables-sm.jpg" alt="Cartel: Melodías inolvidables — Un lenguaje sin palabras" loading="lazy" width="420" height="610"></a><p class="bill-date"><span>13</span> <span data-i18n="mFeb">feb</span> 2025</p><h4>Melodías inolvidables — Un lenguaje sin palabras</h4><p class="bill-venue">Teatro Beethoven, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/musica-del-mundo.jpg" data-poster><img src="assets/posters/musica-del-mundo-sm.jpg" alt="Cartel: Música del Mundo" loading="lazy" width="420" height="741"></a><p class="bill-date"><span>24</span> <span data-i18n="mJan">ene</span> 2024</p><h4>Música del Mundo</h4><p class="bill-venue">Fundación Pueblos de América, Quito</p></li>
+      </ol>
     </div>
   </section>
 
@@ -127,12 +138,19 @@
           <p data-i18n="events2">Trabaja con pianistas, cantantes, guitarristas y percusionistas para formar el ensamble que cada ocasión necesita, de un dúo a un grupo de seis músicos.</p>
         </div>
       </div>
-      <div class="offers offers-light offers-3">
+      <h3 class="sub-title" data-i18n="formatsTitle">Formatos de concierto</h3>
+      <div class="offers offers-light offers-2">
         <article class="offer">
           <h4 data-i18n="e1">Producción de conciertos</h4>
           <p data-i18n="e1d">Concepto, programa, músicos, técnica y difusión para conciertos en teatros, salas e iglesias.</p>
           <ul><li data-i18n="e1i1">Dirección artística de principio a fin</li><li data-i18n="e1i2">Coordinación con la sala y los músicos</li></ul>
           <a class="wa-link" data-wa="e1" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
+        </article>
+        <article class="offer">
+          <h4 data-i18n="e4">Corno y jazz</h4>
+          <p data-i18n="e4d">Trío o cuarteto con piano y batería: baladas, jazz clásico y soul, con el corno como voz principal.</p>
+          <ul><li data-i18n="e4i1">Clubes, festivales y galas</li><li data-i18n="e4i2">Repertorio adaptable a la ocasión</li></ul>
+          <a class="wa-link" data-wa="e4" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
         </article>
         <article class="offer">
           <h4 data-i18n="e2">Eventos privados y corporativos</h4>
@@ -147,6 +165,15 @@
           <a class="wa-link" data-wa="e3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
         </article>
       </div>
+      <h3 class="sub-title" data-i18n="eventsBill">Eventos</h3>
+      <ol class="billboard">
+        <li class="bill"><a class="poster" href="assets/posters/retro-jazz.jpg" data-poster><img src="assets/posters/retro-jazz-sm.jpg" alt="Cartel: Retro Jazz" loading="lazy" width="420" height="513"></a><p class="bill-date"><span>15</span> <span data-i18n="mMay">may</span> 2026</p><h4>Retro Jazz</h4><p class="bill-venue">Quito Jazz Club</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/midnight-soul.jpg" data-poster><img src="assets/posters/midnight-soul-sm.jpg" alt="Cartel: Midnight Soul" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>23</span> <span data-i18n="mApr">abr</span> 2026</p><h4>Midnight Soul</h4><p class="bill-venue">Casa de la Música, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/de-carmen-a-granada.jpg" data-poster><img src="assets/posters/de-carmen-a-granada-sm.jpg" alt="Cartel: De Carmen a Granada — Un recorrido por España" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>16</span> <span data-i18n="mOct">oct</span> 2025</p><h4>De Carmen a Granada — Un recorrido por España</h4><p class="bill-venue">Centro Español, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/back-to-jazz-roots.jpg" data-poster><img src="assets/posters/back-to-jazz-roots-sm.jpg" alt="Cartel: Back to Jazz Roots" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>12</span> <span data-i18n="mSep">sep</span> 2025</p><h4>Back to Jazz Roots</h4><p class="bill-venue">Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/todo-comienza-hoy.jpg" data-poster><img src="assets/posters/todo-comienza-hoy-sm.jpg" alt="Cartel: Todo comienza hoy" loading="lazy" width="420" height="419"></a><p class="bill-date"><span>17</span> <span data-i18n="mJul">jul</span> 2025</p><h4>Todo comienza hoy</h4><p class="bill-venue">Centro Español, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/moon-river.jpg" data-poster><img src="assets/posters/moon-river-sm.jpg" alt="Cartel: Moon River &amp; Beyond — A French Horn Voyage" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>15</span> <span data-i18n="mMay">may</span> 2025</p><h4>Moon River &amp; Beyond — A French Horn Voyage</h4><p class="bill-venue">Quito Jazz Club</p></li>
+      </ol>
     </div>
   </section>
 
@@ -162,27 +189,15 @@
         <li><h4 data-i18n="p1">Música Armenia</h4><p data-i18n="p1d">Ciclo de recitales con obras de Komitas, Khachaturian y Babajanyan, producido junto a Denis Daniilidis.</p></li>
         <li><h4 data-i18n="p2">Música sacra y barroca</h4><p data-i18n="p2d">Conciertos de corno, órgano, voz y narración en iglesias del Centro Histórico de Quito.</p></li>
         <li><h4 data-i18n="p3">Homenaje a Mikis Theodorakis</h4><p data-i18n="p3d">Concierto homenaje al compositor griego, con dirección musical de Tigran.</p></li>
-        <li><h4 data-i18n="p4">Corno y jazz en Quito</h4><p data-i18n="p4d">Programas como Retro Jazz, Moon River &amp; Beyond y Midnight Soul, que llevan el corno a los clubes de jazz.</p></li>
+        <li><h4 data-i18n="p4">Puentes entre culturas</h4><p data-i18n="p4d">Programas que unen la música armenia, griega, española y latinoamericana con el público de Quito.</p></li>
       </ul>
-
-      <h3 class="sub-title" id="cartelera" data-i18n="billTitle">Cartelera</h3>
-      <p class="sub-intro" data-i18n="billIntro">Eventos recientes. Toca un cartel para verlo completo.</p>
+      <h3 class="sub-title" data-i18n="cultureBill">Proyectos en cartelera</h3>
       <ol class="billboard">
-        <li class="bill"><a class="poster" href="assets/posters/mozart-ute.jpg" data-poster><img src="assets/posters/mozart-ute-sm.jpg" alt="Cartel: Mozart — Sinfonía n.º 40 y Concierto para corno n.º 3" loading="lazy" width="420" height="560"></a><p class="bill-date"><span>28</span> <span data-i18n="mJul">jul</span> 2026</p><h4>Mozart — Sinfonía n.º 40 y Concierto para corno n.º 3</h4><p class="bill-venue">Capilla UTE, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/retro-jazz.jpg" data-poster><img src="assets/posters/retro-jazz-sm.jpg" alt="Cartel: Retro Jazz" loading="lazy" width="420" height="513"></a><p class="bill-date"><span>15</span> <span data-i18n="mMay">may</span> 2026</p><h4>Retro Jazz</h4><p class="bill-venue">Quito Jazz Club</p></li>
         <li class="bill"><a class="poster" href="assets/posters/voz-de-mi-patria.jpg" data-poster><img src="assets/posters/voz-de-mi-patria-sm.jpg" alt="Cartel: Música Armenia — La voz de mi patria" loading="lazy" width="420" height="613"></a><p class="bill-date"><span>14</span> <span data-i18n="mMay">may</span> 2026</p><h4>Música Armenia — La voz de mi patria</h4><p class="bill-venue">Teatro Beethoven, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/midnight-soul.jpg" data-poster><img src="assets/posters/midnight-soul-sm.jpg" alt="Cartel: Midnight Soul" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>23</span> <span data-i18n="mApr">abr</span> 2026</p><h4>Midnight Soul</h4><p class="bill-venue">Casa de la Música, Quito</p></li>
         <li class="bill"><a class="poster" href="assets/posters/musica-sacra.jpg" data-poster><img src="assets/posters/musica-sacra-sm.jpg" alt="Cartel: Concierto de Música Sacra" loading="lazy" width="420" height="630"></a><p class="bill-date"><span>26</span> <span data-i18n="mMar">mar</span> 2026</p><h4>Concierto de Música Sacra</h4><p class="bill-venue">Iglesia de San Agustín, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/ecos-instante-sagrado.jpg" data-poster><img src="assets/posters/ecos-instante-sagrado-sm.jpg" alt="Cartel: Ecos de un instante sagrado" loading="lazy" width="420" height="607"></a><p class="bill-date"><span>21–22</span> <span data-i18n="mMar">mar</span> 2026</p><h4>La voz del corno y la palabra: Ecos de un instante sagrado</h4><p class="bill-venue">Iglesia de la Medalla Milagrosa e Iglesia del Carmen Alto, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/sacra-voz-barroco.jpg" data-poster><img src="assets/posters/sacra-voz-barroco-sm.jpg" alt="Cartel: La Sacra Voz del Barroco" loading="lazy" width="420" height="560"></a><p class="bill-date"><span>15</span> <span data-i18n="mMar">mar</span> 2026</p><h4>La Sacra Voz del Barroco y del Corno Francés</h4><p class="bill-venue">Iglesia Luterana El Adviento, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/recital-musica-armenia.jpg" data-poster><img src="assets/posters/recital-musica-armenia-sm.jpg" alt="Cartel: Recital de Música Armenia" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>22</span> <span data-i18n="mJan">ene</span> 2026</p><h4>Recital de Música Armenia — Armonías y vibraciones</h4><p class="bill-venue">Casa de la Música, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/ecos-instante-sagrado.jpg" data-poster><img src="assets/posters/ecos-instante-sagrado-sm.jpg" alt="Cartel: La voz del corno y la palabra: Ecos de un instante sagrado" loading="lazy" width="420" height="607"></a><p class="bill-date"><span>21–22</span> <span data-i18n="mMar">mar</span> 2026</p><h4>La voz del corno y la palabra: Ecos de un instante sagrado</h4><p class="bill-venue">Iglesia de la Medalla Milagrosa e Iglesia del Carmen Alto, Quito</p></li>
+        <li class="bill"><a class="poster" href="assets/posters/sacra-voz-barroco.jpg" data-poster><img src="assets/posters/sacra-voz-barroco-sm.jpg" alt="Cartel: La Sacra Voz del Barroco y del Corno Francés" loading="lazy" width="420" height="560"></a><p class="bill-date"><span>15</span> <span data-i18n="mMar">mar</span> 2026</p><h4>La Sacra Voz del Barroco y del Corno Francés</h4><p class="bill-venue">Iglesia Luterana El Adviento, Quito</p></li>
         <li class="bill"><a class="poster" href="assets/posters/mikis-theodorakis.jpg" data-poster><img src="assets/posters/mikis-theodorakis-sm.jpg" alt="Cartel: Homenaje a Mikis Theodorakis" loading="lazy" width="420" height="690"></a><p class="bill-date"><span>13</span> <span data-i18n="mNov">nov</span> 2025</p><h4>Homenaje a Mikis Theodorakis</h4><p class="bill-venue">Teatro Beethoven, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/de-carmen-a-granada.jpg" data-poster><img src="assets/posters/de-carmen-a-granada-sm.jpg" alt="Cartel: De Carmen a Granada" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>16</span> <span data-i18n="mOct">oct</span> 2025</p><h4>De Carmen a Granada — Un recorrido por España</h4><p class="bill-venue">Centro Español, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/back-to-jazz-roots.jpg" data-poster><img src="assets/posters/back-to-jazz-roots-sm.jpg" alt="Cartel: Back to Jazz Roots" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>12</span> <span data-i18n="mSep">sep</span> 2025</p><h4>Back to Jazz Roots</h4><p class="bill-venue">Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/todo-comienza-hoy.jpg" data-poster><img src="assets/posters/todo-comienza-hoy-sm.jpg" alt="Cartel: Todo comienza hoy" loading="lazy" width="420" height="419"></a><p class="bill-date"><span>17</span> <span data-i18n="mJul">jul</span> 2025</p><h4>Todo comienza hoy</h4><p class="bill-venue">Centro Español, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/moon-river.jpg" data-poster><img src="assets/posters/moon-river-sm.jpg" alt="Cartel: Moon River &amp; Beyond" loading="lazy" width="420" height="525"></a><p class="bill-date"><span>15</span> <span data-i18n="mMay">may</span> 2025</p><h4>Moon River &amp; Beyond — A French Horn Voyage</h4><p class="bill-venue">Quito Jazz Club</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/melodias-inolvidables.jpg" data-poster><img src="assets/posters/melodias-inolvidables-sm.jpg" alt="Cartel: Melodías inolvidables" loading="lazy" width="420" height="610"></a><p class="bill-date"><span>13</span> <span data-i18n="mFeb">feb</span> 2025</p><h4>Melodías inolvidables — Un lenguaje sin palabras</h4><p class="bill-venue">Teatro Beethoven, Quito</p></li>
-        <li class="bill"><a class="poster" href="assets/posters/musica-del-mundo.jpg" data-poster><img src="assets/posters/musica-del-mundo-sm.jpg" alt="Cartel: Música del Mundo" loading="lazy" width="420" height="741"></a><p class="bill-date"><span>24</span> <span data-i18n="mJan">ene</span> 2024</p><h4>Música del Mundo</h4><p class="bill-venue">Fundación Pueblos de América, Quito</p></li>
         <li class="bill"><a class="poster" href="assets/posters/musica-armenia-melodias.jpg" data-poster><img src="assets/posters/musica-armenia-melodias-sm.jpg" alt="Cartel: Música Armenia — Melodías y vibraciones" loading="lazy" width="420" height="595"></a><p class="bill-date"><span>24</span> <span data-i18n="mApr">abr</span></p><h4>Música Armenia — Melodías y vibraciones</h4><p class="bill-venue">Fundación Pueblos de América, Quito</p></li>
       </ol>
     </div>
@@ -209,6 +224,28 @@
         </ul>
       </div>
 
+      <h3 class="sub-title" id="lessons" data-i18n="lessonsTitle">Clases online y apoyo a tu práctica</h3>
+      <div class="lessons-grid">
+        <div class="lessons-side">
+          <p data-i18n="lessonsIntro">Clases individuales centradas en tu repertorio y tus objetivos, con seguimiento de tu estudio entre clases. Escribe con tu nivel, el repertorio que trabajas y tu zona horaria.</p>
+          <p class="instruments-title" data-i18n="instrumentsTitle">Instrumentos que Tigran toca y enseña</p>
+          <ul class="instruments">
+            <li data-i18n="inst1">Corno francés</li>
+            <li data-i18n="inst6">Trompeta</li>
+            <li data-i18n="inst7">Trombón</li>
+            <li data-i18n="inst2">Violín</li>
+            <li data-i18n="inst3">Piano</li>
+            <li data-i18n="inst4">Guitarra</li>
+            <li data-i18n="inst5">Canto</li>
+          </ul>
+        </div>
+        <ol class="plans">
+          <li class="plan"><h4 data-i18n="l2">Clase individual</h4><p data-i18n="l2d">45 minutos sobre el repertorio que elijas: técnica, sonido, fraseo e interpretación.</p><a class="wa-link" data-wa="l2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
+          <li class="plan"><h4 data-i18n="l3">Planes mensuales</h4><p data-i18n="l3d">Clases de 45 minutos cada semana, con revisión de tus grabaciones y un plan de estudio.</p><ul class="plan-options"><li data-i18n="l3a">4 clases</li><li data-i18n="l3b">8 clases</li><li data-i18n="l3c">12 clases</li></ul><a class="wa-link" data-wa="l3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
+          <li class="plan"><h4 data-i18n="l4">Preparación de audición o recital</h4><p data-i18n="l4d">Clases para preparar una audición, un examen o un recital, con simulacro final.</p><a class="wa-link" data-wa="l4" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
+        </ol>
+      </div>
+
       <h3 class="sub-title" id="masterclass" data-i18n="mcTitle">Masterclass</h3>
       <div class="offers offers-light offers-2">
         <article class="offer">
@@ -223,27 +260,6 @@
           <ul><li data-i18n="m2i1">Ideal para conservatorios y festivales</li><li data-i18n="m2i2">Programa del recital a elección</li></ul>
           <a class="wa-link" data-wa="m2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
         </article>
-      </div>
-
-      <h3 class="sub-title" id="lessons" data-i18n="lessonsTitle">Clases online</h3>
-      <div class="lessons-grid">
-        <div class="lessons-side">
-          <p data-i18n="lessonsIntro">Clases individuales centradas en tu repertorio y tus objetivos. Escribe con tu nivel, el repertorio que trabajas y tu zona horaria.</p>
-          <p class="instruments-title" data-i18n="instrumentsTitle">Instrumentos que Tigran toca y enseña</p>
-          <ul class="instruments">
-            <li data-i18n="inst1">Corno francés</li>
-            <li data-i18n="inst2">Violín</li>
-            <li data-i18n="inst3">Piano</li>
-            <li data-i18n="inst4">Guitarra</li>
-            <li data-i18n="inst5">Canto</li>
-          </ul>
-        </div>
-        <ol class="plans">
-          <li class="plan"><h4 data-i18n="l1">Clase de diagnóstico</h4><p data-i18n="l1d">Escuchamos cómo tocas o cantas, identificamos prioridades y te proponemos un plan de trabajo.</p><a class="wa-link" data-wa="l1" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
-          <li class="plan"><h4 data-i18n="l2">Clase individual</h4><p data-i18n="l2d">60 minutos sobre el repertorio que elijas: técnica, sonido, fraseo e interpretación.</p><a class="wa-link" data-wa="l2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
-          <li class="plan"><h4 data-i18n="l3">Plan mensual</h4><p data-i18n="l3d">4 clases al mes, revisión de tus grabaciones entre clases y un plan de estudio semanal.</p><a class="wa-link" data-wa="l3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
-          <li class="plan"><h4 data-i18n="l4">Preparación de audición o recital</h4><p data-i18n="l4d">8 clases para preparar una audición o un recital, con simulacro final.</p><a class="wa-link" data-wa="l4" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
-        </ol>
       </div>
 
       <h3 class="sub-title" id="didactic" data-i18n="didTitle">Conciertos didácticos</h3>
@@ -271,7 +287,9 @@
         <img src="assets/img/dramatic.jpg" width="1000" height="1000" loading="lazy" alt="Retrato de Tigran con el corno en penumbra" data-i18n-alt="g3">
         <img src="assets/img/brick-portrait.jpg" width="900" height="1200" loading="lazy" alt="Tigran sonriendo con su corno" data-i18n-alt="g4">
         <img class="g-wide" src="assets/img/with-colleague.jpg" width="1400" height="645" loading="lazy" alt="Tigran con un colega en una sala de conciertos" data-i18n-alt="g5">
+        <img class="g-tall" src="assets/posters/academia-tort-barcelona.jpg" width="1000" height="1500" loading="lazy" alt="Tigran Ter-Minasyan e Ingrid Cusidó, concierto en Barcelona" data-i18n-alt="g9">
         <img class="g-wide" src="assets/img/church-recital.jpg" width="1000" height="1000" loading="lazy" alt="Tigran tocando el corno en un recital" data-i18n-alt="g6">
+        <img class="g-tall" src="assets/posters/coro-vell-terrassa.jpg" width="1000" height="1500" loading="lazy" alt="Tigran Ter-Minasyan e Ingrid Cusidó, concierto en Terrassa" data-i18n-alt="g10">
         <img src="assets/img/portrait.jpg" width="1000" height="1280" loading="lazy" alt="Retrato de Tigran Ter-Minasyan con su corno" data-i18n-alt="g7">
         <img src="assets/img/orchestra-horns.jpg" width="900" height="1949" loading="lazy" alt="Tigran con la sección de cornos en el escenario" data-i18n-alt="g8">
       </div>
@@ -305,8 +323,8 @@
 
 <footer class="site-footer">
   <div class="wrap footer-row">
-    <p class="brand-name">Tigran Ter-Minasyan</p>
-    <p>© 2026 TigranSoundLab</p>
+    <img class="footer-logo" src="assets/tigransoundlab-logo.svg" width="800" height="132" alt="TigranSoundLab">
+    <p>© 2026 Tigran Ter-Minasyan</p>
     <a href="#top" data-i18n="toTop">Volver arriba</a>
   </div>
 </footer>
