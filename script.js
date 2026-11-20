@@ -3,29 +3,20 @@ const WHATSAPP = '593999688850';
 const LANGS = ['es', 'en', 'ru', 'hy'];
 let dictionary = null;
 
-/* ---------- Mobile menu ---------- */
-const menuToggle = document.querySelector('.menu-toggle');
-const navPanel = document.querySelector('#site-nav');
-function setMenu(open) {
-  menuToggle.setAttribute('aria-expanded', String(open));
-  navPanel.classList.toggle('open', open);
+/* ---------- Piano keys: mark the key of the section on screen ---------- */
+const keys = [...document.querySelectorAll('.key')];
+const chapters = keys.map(k => document.querySelector(k.getAttribute('href')));
+function markKey() {
+  const line = document.querySelector('.site-header').offsetHeight + document.querySelector('.keys').offsetHeight + window.innerHeight * 0.25;
+  let current = -1;
+  chapters.forEach((c, i) => { if (c && c.getBoundingClientRect().top <= line) current = i; });
+  const last = chapters[chapters.length - 1];
+  if (current === chapters.length - 1 && last.getBoundingClientRect().bottom < line) current = -1;
+  keys.forEach((k, i) => { if (i === current) k.setAttribute('aria-current', 'true'); else k.removeAttribute('aria-current'); });
 }
-/* Switch to the compact (hamburger) header when the full menu would not fit in the bar */
-const header = document.querySelector('.site-header');
-const bar = header.querySelector('.bar');
-function fitHeader() {
-  header.classList.remove('compact');
-  const needed = bar.querySelector('.brand').scrollWidth + 24 + navPanel.scrollWidth;
-  const fits = window.innerWidth > 1040 && needed <= bar.clientWidth;
-  header.classList.toggle('compact', !fits);
-  if (fits) setMenu(false);
-}
-window.addEventListener('resize', fitHeader);
-if (document.fonts) document.fonts.ready.then(fitHeader);
-fitHeader();
-menuToggle.addEventListener('click',() => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
-navPanel.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && navPanel.classList.contains('open')) { setMenu(false); menuToggle.focus(); } });
+window.addEventListener('scroll', markKey, { passive: true });
+window.addEventListener('resize', markKey);
+markKey();
 
 /* ---------- WhatsApp links with a pre-filled message per offer ---------- */
 function updateWhatsAppLinks() {
@@ -39,7 +30,7 @@ function updateWhatsAppLinks() {
 
 /* ---------- Translations (Spanish is the HTML default) ---------- */
 let languageRequest = 0;
-const translations = fetch('translations.json?v=3').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
+const translations = fetch('translations.json?v=5').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
 translations.catch(() => {});
 async function setLang(lang) {
   if (!LANGS.includes(lang)) return;
@@ -56,7 +47,6 @@ async function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     renderVideoLabels();
     updateWhatsAppLinks();
-    fitHeader();
     try { localStorage.setItem('tigran-language', lang); } catch {}
   } catch { /* keep the Spanish page as rendered */ }
 }
