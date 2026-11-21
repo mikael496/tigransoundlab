@@ -212,7 +212,7 @@ h4{font:400 var(--fs-h4)/1.25 var(--display)}
 .projects li{padding:var(--s5) 0;border-bottom:var(--rule) solid var(--line-dark)}
 .projects h4{color:var(--brass-hi);margin-bottom:var(--s2)}
 .projects p{font-size:var(--fs-md)}
-.billboard{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--s7) var(--s5)}
+.billboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s7) var(--s5)}
 .bill .poster{display:block;margin-bottom:var(--s3);background:var(--velvet);border:var(--rule) solid var(--line-dark);transition:border-color .2s,transform .2s}
 .bill .poster img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%}
 .bill .poster:hover{border-color:var(--brass);transform:rotate(-1.5deg)}
