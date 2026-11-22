@@ -30,7 +30,7 @@ function updateWhatsAppLinks() {
 
 /* ---------- Translations (Spanish is the HTML default) ---------- */
 let languageRequest = 0;
-const translations = fetch('translations.json?v=10').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
+const translations = fetch('translations.json?v=11').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
 translations.catch(() => {});
 async function setLang(lang) {
   if (!LANGS.includes(lang)) return;
