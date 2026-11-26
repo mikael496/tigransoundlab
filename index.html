@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Onest:wght@400;500;600&family=Noto+Serif+Armenian:wght@400&family=Noto+Sans+Armenian:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-portrait.jpg?v=2">
-<link rel="stylesheet" href="styles.css?v=16">
-<script src="script.js?v=11" defer></script>
+<link rel="stylesheet" href="styles.css?v=22">
+<script src="script.js?v=12" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Tigran Ter-Minasyan","jobTitle":["Solista de corno","Gestor cultural","Profesor","Organizador de eventos"],"address":{"@type":"PostalAddress","addressLocality":"Quito","addressCountry":"EC"},"email":"mailto:tigransoundlab@gmail.com","telephone":"+593999688850"}
 </script>
@@ -52,7 +52,8 @@
       <div class="hero-actions">
         <a class="btn btn-brass" href="#contact" data-i18n="heroContact">Contactar</a>
         <a class="btn btn-ghost" href="#conciertos" data-i18n="heroConcerts">Ver cartelera</a>
-        <a class="btn btn-ghost hero-support" href="#support" data-i18n="supportTitle">Apoya el arte</a>
+        <a class="btn btn-ghost" href="#aprender" data-i18n="heroStudy">Estudiar conmigo</a>
+        <a class="btn btn-ghost" href="#support" data-i18n="supportTitle">Apoya el arte</a>
       </div>
     </div>
     <figure class="hero-photo">
@@ -65,7 +66,7 @@
     <a class="key" href="#solista"><span class="key-name" data-i18n="key1">Solista</span><span class="key-sub" data-i18n="key1s">Conciertos y programas</span></a>
     <a class="key" href="#eventos"><span class="key-name" data-i18n="key2">Organizador de eventos</span><span class="key-sub" data-i18n="key2s">Formatos y producción</span></a>
     <a class="key" href="#gestion"><span class="key-name" data-i18n="key3">Gestor cultural</span><span class="key-sub" data-i18n="key3s">Gestión cultural</span></a>
-    <a class="key" href="#profesor"><span class="key-name" data-i18n="key4">Profesor</span><span class="key-sub" data-i18n="key4s">Escuela y masterclass</span></a>
+    <a class="key" href="#profesor"><span class="key-name" data-i18n="key4">Escuela</span><span class="key-sub" data-i18n="key4s">Clases y masterclass</span></a>
   </nav>
 
   <!-- 1. SOLISTA -->
@@ -83,7 +84,10 @@
         </div>
       </div>
 
-      <h3 class="sub-title" data-i18n="soloFormatsTitle">Conciertos y programas</h3>
+<div class="accs">
+      <details class="acc" id="formatos">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="soloFormatsTitle">Conciertos y programas</h3><span class="acc-desc" data-i18n="accFormats">Recitales con piano y conciertos con orquesta</span></span></summary>
+        <div class="acc-body">
       <div class="offers offers-3">
         <article class="offer">
           <h4 data-i18n="s1">Recitales con piano</h4>
@@ -104,16 +108,22 @@
           <a class="wa-link" data-wa="s3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
         </article>
       </div>
-
-      <h3 class="sub-title" id="videos" data-i18n="videosTitle">Videos</h3>
+        </div>
+      </details>
+      <details class="acc" id="videos">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="videosTitle">Videos</h3><span class="acc-desc" data-i18n="accVideos">Escúchalo en concierto</span></span></summary>
+        <div class="acc-body">
       <!-- Para publicar un video: pega el ID de YouTube en data-youtube (lo que va después de "v=" en el enlace). -->
       <div class="video-grid">
         <div class="video video-main" data-youtube="" data-thumb="assets/img/church-recital.jpg"><p class="video-title" data-i18n="video1">Recital de corno</p></div>
         <div class="video" data-youtube="" data-thumb="assets/img/chamber-stage.jpg"><p class="video-title" data-i18n="video2">Música de cámara</p></div>
         <div class="video" data-youtube="" data-thumb="assets/img/stage-duo.jpg"><p class="video-title" data-i18n="video3">Corno y jazz</p></div>
       </div>
-
-      <h3 class="sub-title" id="conciertos" data-i18n="soloBill">Cartelera</h3>
+        </div>
+      </details>
+      <details class="acc" id="conciertos">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="soloBill">Cartelera</h3><span class="acc-desc" data-i18n="accBill">Conciertos recientes</span></span></summary>
+        <div class="acc-body">
       <p class="sub-intro" data-i18n="billIntro">Toca un cartel para verlo completo.</p>
       <ol class="billboard">
         <li class="bill"><a class="poster" href="assets/posters/academia-tort-barcelona.jpg" data-poster><img src="assets/posters/academia-tort-barcelona-sm.jpg" alt="Cartel: Concert — Tigran Ter-Minasyan e Ingrid Cusidó" loading="lazy" width="420" height="630"></a><p class="bill-date"><span>13</span> <span data-i18n="mNov">nov</span> 2026</p><h4>Concert — Tigran Ter-Minasyan e Ingrid Cusidó</h4><p class="bill-venue">Acadèmia Tort, Barcelona</p></li>
@@ -123,6 +133,9 @@
         <li class="bill"><a class="poster" href="assets/posters/melodias-inolvidables.jpg" data-poster><img src="assets/posters/melodias-inolvidables-sm.jpg" alt="Cartel: Melodías inolvidables — Un lenguaje sin palabras" loading="lazy" width="420" height="610"></a><p class="bill-date"><span>13</span> <span data-i18n="mFeb">feb</span> 2025</p><h4>Melodías inolvidables — Un lenguaje sin palabras</h4><p class="bill-venue">Teatro Beethoven, Quito</p></li>
         <li class="bill"><a class="poster" href="assets/posters/musica-del-mundo.jpg" data-poster><img src="assets/posters/musica-del-mundo-sm.jpg" alt="Cartel: Música del Mundo" loading="lazy" width="420" height="741"></a><p class="bill-date"><span>24</span> <span data-i18n="mJan">ene</span> 2024</p><h4>Música del Mundo</h4><p class="bill-venue">Fundación Pueblos de América, Quito</p></li>
       </ol>
+        </div>
+      </details>
+      </div>
     </div>
   </section>
 
@@ -210,7 +223,7 @@
     <div class="wrap">
       <header class="chapter-head">
         <p class="chapter-key" aria-hidden="true">4</p>
-        <h2 id="profesor-title" data-i18n="teachTitle">Profesor</h2>
+        <h2 id="profesor-title" data-i18n="teachTitle">Escuela</h2>
       </header>
       <div class="academy">
         <div>
@@ -218,15 +231,40 @@
           <p class="academy-motto" data-i18n="motto">Música, personas, posibilidades</p>
           <p class="lead" data-i18n="teach1">La música cambia vidas. TigranSoundLab es un puente entre la tradición y el mañana: un espacio para explorar, aprender, crear y conectar a través de la música.</p>
         </div>
-        <ul class="pillars">
-          <li data-i18n="pillar1">Explorar</li>
-          <li data-i18n="pillar2">Aprender</li>
-          <li data-i18n="pillar3">Crear</li>
-          <li data-i18n="pillar4">Conectar</li>
-        </ul>
       </div>
 
-      <h3 class="sub-title" id="lessons" data-i18n="lessonsTitle">Clases de corno francés online</h3>
+<div class="accs">
+      <details class="acc" id="explorar">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="pillar1">Explorar</h3><span class="acc-desc" data-i18n="accExplore">Conciertos didácticos e instrumentos de la escuela</span></span></summary>
+        <div class="acc-body">
+      <h4 class="acc-sub" id="didactic" data-i18n="didTitle">Conciertos didácticos</h4>
+      <div class="split">
+        <div class="did-photos">
+          <img src="assets/img/school-stage.jpg" width="900" height="719" loading="lazy" alt="Tigran en un concierto didáctico ante estudiantes" data-i18n-alt="didAlt1">
+          <img src="assets/img/students-3.jpg" width="900" height="922" loading="lazy" alt="Estudiantes alrededor de Tigran y su corno" data-i18n-alt="didAlt2">
+        </div>
+        <div class="split-text">
+          <p class="lead" data-i18n="did1">Un concierto explicado para que niños y jóvenes descubran el corno francés de cerca, con espacio para preguntas.</p>
+          <ul class="did-list"><li data-i18n="did2">Escuelas y colegios</li><li data-i18n="did3">Grupos pequeños o auditorios</li><li data-i18n="did4">Programa adaptado a cada edad</li></ul>
+          <a class="btn btn-wine" data-wa="didTitle" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <p class="instruments-title" data-i18n="instrumentsTitle">Instrumentos que puedes aprender en la escuela</p>
+      <ul class="instruments">
+        <li data-i18n="inst1">Corno francés</li>
+        <li data-i18n="inst6">Trompeta</li>
+        <li data-i18n="inst7">Trombón</li>
+        <li data-i18n="inst2">Violín</li>
+        <li data-i18n="inst3">Piano</li>
+        <li data-i18n="inst4">Guitarra</li>
+        <li data-i18n="inst5">Canto</li>
+      </ul>
+        </div>
+      </details>
+      <details class="acc" id="aprender">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="pillar2">Aprender</h3><span class="acc-desc" data-i18n="accLearn">Clases de corno francés online y planes</span></span></summary>
+        <div class="acc-body">
+      <h4 class="acc-sub" id="lessons" data-i18n="lessonsTitle">Clases de corno francés online</h4>
       <div class="lessons-grid">
         <div class="lessons-side">
           <p class="lead" data-i18n="lessonsIntro">Clases individuales centradas en tu repertorio y tus objetivos, con seguimiento de tu estudio entre clases.</p>
@@ -238,27 +276,24 @@
         </div>
         <ul class="features"><li><h4 data-i18n="f1">Formación profesional en corno francés</h4><p data-i18n="f1d">Todos los niveles: principiante, intermedio y avanzado.</p></li><li><h4 data-i18n="f2">Preparación para audiciones</h4><p data-i18n="f2d">Orquesta, banda, conservatorio y universidad.</p></li><li><h4 data-i18n="f3">Repertorio orquestal y de banda</h4><p data-i18n="f3d">Partes específicas, pasajes desafiantes y estilos.</p></li><li><h4 data-i18n="f4">Desarrollo técnico</h4><p data-i18n="f4d">Sonido, afinación, articulación e interpretación.</p></li><li><h4 data-i18n="f5">Clases para estudiantes y profesionales</h4><p data-i18n="f5d">Enfoque personalizado según tus objetivos.</p></li></ul>
       </div>
-
-      <h3 class="sub-title" data-i18n="otherTitle">Apoyo en otros instrumentos y formación musical general</h3>
-      <ul class="features features-2"><li><h4 data-i18n="o1">Musicalidad y práctica interpretativa</h4><p data-i18n="o1d">Lectura a primera vista, análisis de formas y períodos estilísticos, y teoría musical.</p></li><li><h4 data-i18n="o2">Técnicas de práctica efectivas</h4><p data-i18n="o2d">Organización, enfoque, gestión del tiempo y objetivos musicales.</p></li><li><h4 data-i18n="o3">Orientación para estudiantes de todos los instrumentos</h4><p data-i18n="o3d">Repertorio, tareas, interpretación y preparación para presentaciones.</p></li><li><h4 data-i18n="o4">Desarrollo de habilidades musicales</h4><p data-i18n="o4d">Escucha, ritmo, fraseo, creatividad y confianza escénica.</p></li></ul>
-      <p class="instruments-title" data-i18n="instrumentsTitle">Instrumentos que puedes aprender en la escuela</p>
-      <ul class="instruments">
-        <li data-i18n="inst1">Corno francés</li>
-        <li data-i18n="inst6">Trompeta</li>
-        <li data-i18n="inst7">Trombón</li>
-        <li data-i18n="inst2">Violín</li>
-        <li data-i18n="inst3">Piano</li>
-        <li data-i18n="inst4">Guitarra</li>
-        <li data-i18n="inst5">Canto</li>
-      </ul>
-
-      <h3 class="sub-title" data-i18n="plansTitle">Planes</h3>
+      <h4 class="acc-sub" data-i18n="plansTitle">Planes</h4>
       <ol class="plans plans-2">
         <li class="plan"><h4 data-i18n="l2">Clase individual</h4><p data-i18n="l2d">45 minutos sobre el repertorio que elijas: técnica, sonido, fraseo e interpretación.</p><a class="wa-link" data-wa="l2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
         <li class="plan"><h4 data-i18n="l3">Planes mensuales</h4><p data-i18n="l3d">Clases de 45 minutos cada semana, con revisión de tus grabaciones y un plan de estudio.</p><ul class="plan-options"><li data-i18n="l3a">4 clases</li><li data-i18n="l3b">8 clases</li><li data-i18n="l3c">12 clases</li></ul><a class="wa-link" data-wa="l3" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a></li>
       </ol>
-
-      <h3 class="sub-title" id="masterclass" data-i18n="mcTitle">Masterclass</h3>
+        </div>
+      </details>
+      <details class="acc" id="crear">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="pillar3">Crear</h3><span class="acc-desc" data-i18n="accCreate">Apoyo en otros instrumentos y formación musical</span></span></summary>
+        <div class="acc-body">
+      <h4 class="acc-sub" data-i18n="otherTitle">Apoyo en otros instrumentos y formación musical general</h4>
+      <ul class="features features-2"><li><h4 data-i18n="o1">Musicalidad y práctica interpretativa</h4><p data-i18n="o1d">Lectura a primera vista, análisis de formas y períodos estilísticos, y teoría musical.</p></li><li><h4 data-i18n="o2">Técnicas de práctica efectivas</h4><p data-i18n="o2d">Organización, enfoque, gestión del tiempo y objetivos musicales.</p></li><li><h4 data-i18n="o3">Orientación para estudiantes de todos los instrumentos</h4><p data-i18n="o3d">Repertorio, tareas, interpretación y preparación para presentaciones.</p></li><li><h4 data-i18n="o4">Desarrollo de habilidades musicales</h4><p data-i18n="o4d">Escucha, ritmo, fraseo, creatividad y confianza escénica.</p></li></ul>
+        </div>
+      </details>
+      <details class="acc" id="conectar">
+        <summary><span class="acc-head"><h3 class="acc-title" data-i18n="pillar4">Conectar</h3><span class="acc-desc" data-i18n="accConnect">Masterclass y recital</span></span></summary>
+        <div class="acc-body">
+      <h4 class="acc-sub" id="masterclass" data-i18n="mcTitle">Masterclass</h4>
       <div class="offers offers-light offers-2">
         <article class="offer">
           <h4 data-i18n="m1">Masterclass</h4>
@@ -273,18 +308,8 @@
           <a class="wa-link" data-wa="m2" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
         </article>
       </div>
-
-      <h3 class="sub-title" id="didactic" data-i18n="didTitle">Conciertos didácticos</h3>
-      <div class="split">
-        <div class="did-photos">
-          <img src="assets/img/school-stage.jpg" width="900" height="719" loading="lazy" alt="Tigran en un concierto didáctico ante estudiantes" data-i18n-alt="didAlt1">
-          <img src="assets/img/students-3.jpg" width="900" height="922" loading="lazy" alt="Estudiantes alrededor de Tigran y su corno" data-i18n-alt="didAlt2">
         </div>
-        <div class="split-text">
-          <p class="lead" data-i18n="did1">Un concierto explicado para que niños y jóvenes descubran el corno francés de cerca, con espacio para preguntas.</p>
-          <ul class="did-list"><li data-i18n="did2">Escuelas y colegios</li><li data-i18n="did3">Grupos pequeños o auditorios</li><li data-i18n="did4">Programa adaptado a cada edad</li></ul>
-          <a class="btn btn-wine" data-wa="didTitle" href="https://wa.me/593999688850" target="_blank" rel="noopener noreferrer" data-i18n="ask">Consultar por WhatsApp</a>
-        </div>
+      </details>
       </div>
     </div>
   </section>

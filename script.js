@@ -30,7 +30,7 @@ function updateWhatsAppLinks() {
 
 /* ---------- Translations (Spanish is the HTML default) ---------- */
 let languageRequest = 0;
-const translations = fetch('translations.json?v=11').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
+const translations = fetch('translations.json?v=12').then(r => { if (!r.ok) throw new Error('Translations unavailable'); return r.json(); });
 translations.catch(() => {});
 async function setLang(lang) {
   if (!LANGS.includes(lang)) return;
@@ -114,3 +114,17 @@ posterDialog.addEventListener('close', () => {
   posterTrigger?.focus();
 });
 posterDialog.addEventListener('click', event => { if (event.target === posterDialog) posterDialog.close(); });
+
+/* ---------- Accordions: open the one a link points to (hero buttons, keys, deep links) ---------- */
+function openTarget(hash) {
+  if (!hash || hash.length < 2) return;
+  let el;
+  try { el = document.querySelector(hash); } catch { return; }
+  for (let d = el && el.closest('details'); d; d = d.parentElement && d.parentElement.closest('details')) d.open = true;
+}
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (link) openTarget(link.getAttribute('href'));
+});
+window.addEventListener('hashchange', () => openTarget(location.hash));
+openTarget(location.hash);

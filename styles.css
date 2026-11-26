@@ -63,7 +63,7 @@
   --key-radius:6px;
   --key-radius-sm:3px;
   --key-gap:3px;
-  --ebony-w:32px;                         /* black key width */
+  --ebony-w:38px;                         /* black key width */
   --rule-felt:3px;
   --fs-icon:26px;
 }
@@ -114,7 +114,6 @@ h4{font:400 var(--fs-h4)/1.25 var(--display)}
 .languages button{background:none;border:0;padding:0 var(--s2);font-size:var(--fs-xs);color:var(--on-dark-soft);min-width:var(--s6);min-height:var(--tap)}
 .languages button[aria-pressed=true]{color:var(--brass-hi);text-decoration:underline;text-underline-offset:6px}
 .bar-cta,.bar-support{min-height:var(--tap);padding-block:var(--s2)}
-.hero-support{display:none}
 
 /* Keys: a piano keyboard under the hero photo, sticky below the top bar */
 .keys{position:sticky;top:var(--bar-h);z-index:29;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--key-gap);height:var(--keys-h);padding-bottom:var(--s2);background:var(--velvet-deep);box-shadow:0 0 0 100vmax var(--velvet-deep);clip-path:inset(0 -100vmax);border-top:var(--rule-felt) solid var(--wine);border-bottom:var(--rule) solid var(--line-dark)}
@@ -221,12 +220,10 @@ h4{font:400 var(--fs-h4)/1.25 var(--display)}
 .bill-venue{font-size:var(--fs-xs)}
 
 /* Teaching */
-.academy{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--split-gap);align-items:end}
+.academy{max-width:62ch;margin-bottom:var(--s7)}
 .academy-name{font:400 var(--fs-h3)/1.1 var(--display);color:var(--ink)!important}
 .academy-motto{margin:var(--s2) 0 var(--s5);font-size:var(--fs-sm);font-weight:500;color:var(--wine)!important}
 .academy .lead{color:var(--ink);max-width:48ch}
-.pillars{border-top:var(--rule-strong) solid var(--ink)}
-.pillars li{padding:var(--s3) 0;border-bottom:var(--rule) solid var(--line-light);font:400 var(--fs-h4)/1.2 var(--display);color:var(--wine)}
 
 .lessons-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--split-gap);align-items:start}
 .lessons-side p{max-width:44ch}
@@ -256,6 +253,28 @@ h4{font:400 var(--fs-h4)/1.25 var(--display)}
 .did-photos img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .did-list{margin:var(--s5) 0 var(--s6);border-top:var(--rule-strong) solid var(--ink)}
 .did-list li{padding:var(--s3) 0;border-bottom:var(--rule) solid var(--line-light);color:var(--ink);font-size:var(--fs-md)}
+
+/* Accordions (Solista formats/videos/billboard; Escuela: explore/learn/create/connect) */
+.accs{border-bottom:var(--rule) solid var(--line-dark);margin-top:var(--s7)}
+.paper .accs{border-bottom-color:var(--line-light)}
+.acc{border-top:var(--rule) solid var(--line-dark)}
+.paper .acc{border-top-color:var(--line-light)}
+.acc>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--s5);min-height:var(--s8);padding:var(--s5) 0;cursor:pointer;list-style:none}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary::after{content:"+";flex:none;display:grid;place-items:center;width:var(--tap);height:var(--tap);border:var(--rule) solid var(--brass);border-radius:50%;color:var(--brass);font:400 var(--fs-icon)/1 var(--text);transition:transform .2s}
+.paper .acc>summary::after{border-color:var(--wine);color:var(--wine)}
+.acc[open]>summary::after{content:"−"}
+.acc>summary:hover .acc-title{color:var(--brass-hi)}
+.paper .acc>summary:hover .acc-title{color:var(--wine)}
+.acc-head{display:flex;flex-direction:column;gap:var(--s1)}
+.acc-title{color:var(--on-dark);transition:color .2s}
+.paper .acc-title{color:var(--ink)}
+.acc-desc{font-size:var(--fs-sm);color:var(--on-dark-soft)}
+.paper .acc-desc{color:var(--ink-soft)}
+.acc-body{padding-bottom:var(--s7)}
+.acc-sub{margin:var(--s7) 0 var(--s4);color:var(--ink)}
+.acc-body>.acc-sub:first-child{margin-top:0}
+.acc-body>.offers:first-child,.acc-body>.video-grid:first-child{margin-top:0}
 
 /* Gallery: only portrait and stage photography */
 .gallery-title{margin-bottom:var(--s7)}
@@ -314,11 +333,14 @@ h4{font:400 var(--fs-h4)/1.25 var(--display)}
   :root{--fs-body:16px;--fs-num:32px;--fs-h2:34px;--bar-h:64px;--keys-h:88px;--ebony-w:20px}
   .bar{gap:var(--s2)}
   .bar-link,.bar-cta,.bar-support{display:none}
-  .hero-support{display:inline-flex}
   .brand-logo{height:30px}
   .key{padding:0 var(--s1) var(--s3) var(--s3)}
   .key-name{font-size:var(--fs-2xs)}
   .key-sub{font-size:var(--fs-3xs)}
+  :lang(ru) .key-name,:lang(hy) .key-name{font-size:var(--fs-3xs)}
+  :lang(ru) .key,:lang(hy) .key{padding-right:0}
+  :lang(ru) .key-sub,:lang(hy) .key-sub{display:none}
+  :lang(hy) .key{padding-left:var(--s1)}
   .key:not(:last-child)::after{height:28%}
   .billboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) var(--s4)}
   .gallery-grid{grid-auto-rows:150px;gap:var(--s2)}
